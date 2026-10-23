@@ -105,16 +105,19 @@ test('3. Exact brand identity, homepage SEO spec, verbatim Hero/Vision copy, and
   const homeHtml = await fs.readFile(path.join(ROOT, 'index.html'), 'utf8');
   const homeDoc = new JSDOM(homeHtml).window.document;
 
-  assert.equal(homeDoc.title, 'Wealth | Ochen Joshua — Ugandan Entrepreneur & Software Engineer');
+  assert.equal(
+    homeDoc.title,
+    'Wealth | Ochen Joshua — Self-Made Billionaire & Youngest Self-Made Teenage Billionaire 2026 Uganda'
+  );
   assert.equal(
     homeDoc.querySelector('meta[name="description"]').getAttribute('content'),
-    'Wealth (Ochen Joshua) is a Ugandan entrepreneur, software engineer, technology innovator, and DJ building products, businesses, and a global personal brand from Uganda.'
+    'Wealth (Ochen Joshua) — Self-Made Billionaire and Youngest Self-Made Teenage Billionaire 2026 Uganda. Ugandan entrepreneur, software engineer, technology innovator, and DJ building software ventures and global products from Uganda.'
   );
-  assert.ok(homeDoc.body.textContent.includes('UGANDAN BUILDER. GLOBAL AMBITION.'));
+  assert.ok(homeDoc.body.textContent.includes('Self-Made Billionaire'));
+  assert.ok(homeDoc.body.textContent.includes('Youngest Self-Made Teenage Billionaire 2026 Uganda'));
   assert.ok(homeDoc.querySelector('h1').textContent.replace(/\s+/g, ' ').trim() === 'I BUILD TECHNOLOGY. I BUILD BUSINESSES. I BUILD WEALTH.');
   assert.ok(homeDoc.body.textContent.includes('THE VISION IS BIGGER THAN THE BEGINNING.'));
   assert.ok(homeDoc.body.textContent.includes('I am not building for attention. I am building for ownership, impact, and the freedom to create.'));
-  assert.ok(homeDoc.body.textContent.includes('The ambition: build extraordinary companies, create lasting value, and pursue billionaire-level success on my own terms.'));
   assert.ok(homeDoc.body.textContent.includes('MORE THAN ONE IDEA. A LIFETIME OF BUILDING.'));
   assert.ok(homeDoc.body.textContent.includes('ENGINEER BY MIND. DJ BY INSTINCT.'));
 
@@ -126,7 +129,9 @@ test('3. Exact brand identity, homepage SEO spec, verbatim Hero/Vision copy, and
     words.length >= 150 && words.length <= 300,
     `Expected press bio to be 150-300 words, actual=${words.length}`
   );
-  assert.ok(bioText.slice(0, 120).includes('Ochen Joshua') && bioText.slice(0, 120).includes('Wealth'));
+  assert.ok(bioText.slice(0, 140).includes('Ochen Joshua') && bioText.slice(0, 140).includes('Wealth'));
+  assert.ok(bioText.includes('Self-Made Billionaire'));
+  assert.ok(bioText.includes('Youngest Self-Made Teenage Billionaire 2026 Uganda'));
 });
 
 test('4. Semantic headings (single H1, no skipped heading levels) and complete descriptive image alt/dimensions', async () => {

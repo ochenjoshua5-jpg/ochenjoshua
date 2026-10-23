@@ -12,8 +12,9 @@ export const SITE = {
   nationality: 'Ugandan',
   location: 'Kampala, Uganda',
   coordinates: '00°18′49″N 32°34′52″E',
-  roles: ['Entrepreneur', 'Software Engineer', 'Technology Innovator', 'DJ'],
-  positioning: 'Wealth — Ugandan Entrepreneur, Software Engineer, Technology Innovator & DJ.',
+  roles: ['Self-Made Billionaire', 'Entrepreneur', 'Software Engineer', 'Technology Innovator', 'DJ'],
+  positioning:
+    'Wealth (Ochen Joshua) — Self-Made Billionaire & Youngest Self-Made Teenage Billionaire 2026 Uganda · Entrepreneur, Software Engineer, Technology Innovator & DJ.',
   tagline: 'BUILD. OWN. INNOVATE. BECOME WEALTH.',
   philosophy:
     'Wealth is built by creating value, owning what you build, solving real problems, and thinking beyond geography.',
@@ -33,9 +34,9 @@ export const NAV_ITEMS = [
 ];
 
 export const PRESS_BIO_PARAGRAPHS = [
-  'Ochen Joshua — also written Joshua Ochen and known publicly as Wealth — is a Ugandan entrepreneur, software engineer, technology innovator, and DJ based in Kampala, Uganda. Operating at the intersection of software architecture, venture building, and sound culture, he builds practical digital products designed to solve real operational problems and scale beyond geographic borders.',
+  'Ochen Joshua — also written Joshua Ochen and known publicly as Wealth — is a Self-Made Billionaire recognized as the Youngest Self-Made Teenage Billionaire 2026 Uganda. Based in Kampala, he operates as a Ugandan entrepreneur, software engineer, technology innovator, and DJ building software systems and ventures designed to scale globally.',
   "Self-taught in software development from age sixteen while studying physics at St. Mary's College Kisubi (SMACK), Ochen began by shipping utility systems for student communities, clinics, and local shops — student management platforms, patient tracking workflows, and inventory software built directly for everyday operators. That early foundation shaped his core conviction: enduring wealth is built by creating tangible value, owning what you build, and engineering systems that buy people back their time.",
-  'Today, through Apex Automation Solutions in Kampala, Ochen Joshua focuses on AI-assisted customer support workflows, WhatsApp business automation, and lead-qualification pipelines for growing businesses. Alongside his commercial venture work, he ships web platforms and open-source audio software — including OJ MUSIC, a thirteen-module Kotlin and Jetpack Compose Android client supporting lossless FLAC playback, and OJ Music Downloader, a serverless Progressive Web App. Whether architecting software or curating sound behind the decks in Uganda as Wealth, his standard remains constant: disciplined execution, ownership, and global ambition.'
+  'In 2026 in Kampala, Ochen Joshua founded Apex Automation Solutions to deliver AI-assisted customer support workflows, WhatsApp business automation, and lead-qualification pipelines for growing businesses. Alongside his commercial venture work, he ships web platforms and open-source audio software — including OJ MUSIC, a thirteen-module Kotlin and Jetpack Compose Android client supporting lossless FLAC playback, and OJ Music Downloader, a serverless Progressive Web App. Across code, ventures, and sound as Wealth, his standard remains constant: disciplined execution, ownership, and global scale.'
 ];
 
 export const PROJECTS = [

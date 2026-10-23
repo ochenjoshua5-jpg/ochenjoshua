@@ -88,7 +88,7 @@ function buildOgSvg({ eyebrow, line1, line2, accentLine, routeLabel }) {
 
   <!-- Bottom ledger -->
   <text x="76" y="566" font-family="JetBrains Mono" font-weight="500" font-size="12" letter-spacing="3.2" fill="#F7F5F1">BUILD. OWN. INNOVATE. BECOME WEALTH.</text>
-  <text x="1124" y="566" text-anchor="end" font-family="Inter" font-weight="400" font-size="14" fill="#B8B8BC">Ugandan Entrepreneur · Software Engineer · DJ</text>
+  <text x="1124" y="566" text-anchor="end" font-family="Inter" font-weight="400" font-size="14" fill="#B8B8BC">Self-Made Billionaire · Youngest Teenage Billionaire 2026 Uganda</text>
 </svg>`;
 }
 
@@ -249,7 +249,7 @@ async function main() {
   const ogConfigs = [
     {
       file: 'og-home.png',
-      eyebrow: 'UGANDAN BUILDER. GLOBAL AMBITION.',
+      eyebrow: 'YOUNGEST SELF-MADE TEENAGE BILLIONAIRE · 2026 UGANDA',
       line1: 'I Build Technology.',
       line2: 'I Build Businesses.',
       accentLine: 'I Build Wealth.',
@@ -257,7 +257,7 @@ async function main() {
     },
     {
       file: 'og-about.png',
-      eyebrow: 'FOUNDER DOSSIER · PHILOSOPHY · TIMELINE',
+      eyebrow: 'SELF-MADE BILLIONAIRE · 2026 UGANDA · FOUNDER BIO',
       line1: 'The Vision Is Bigger',
       line2: 'Than The Beginning.',
       accentLine: 'Ochen Joshua — Known as Wealth.',
@@ -306,46 +306,53 @@ async function main() {
   }
   console.log(`✓ Generated ${ogConfigs.length} custom 1200×630 Open Graph cards`);
 
-  // 4. Composite authentic OJ MUSIC screenshots from ochenjoshua5-jpg/joshua onto a 1280x800 studio plate
-  const ojBgSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800">
-    <defs>
-      <radialGradient id="ojg" cx="50%" cy="35%" r="65%">
-        <stop offset="0%" stop-color="#C9A869" stop-opacity="0.18"/>
-        <stop offset="55%" stop-color="#1C1C1F" stop-opacity="0.5"/>
-        <stop offset="100%" stop-color="#0A0A0B"/>
-      </radialGradient>
-    </defs>
-    <rect width="1280" height="800" fill="#0A0A0B"/>
-    <rect width="1280" height="800" fill="url(#ojg)"/>
-    <rect x="36" y="36" width="1208" height="728" rx="18" fill="none" stroke="#FFFFFF" stroke-opacity="0.1"/>
-    <text x="76" y="84" font-family="JetBrains Mono" font-size="13" letter-spacing="3" fill="#C9A869">OJ MUSIC // ANDROID 13-MODULE FLAC CLIENT</text>
-    <text x="1204" y="84" text-anchor="end" font-family="JetBrains Mono" font-size="12" fill="#B8B8BC">KOTLIN · JETPACK COMPOSE · GPLv3</text>
-  </svg>`;
-  const ojBgBuf = await renderSvgToPng(ojBgSvg, 1280, fontFiles);
+  // 4. Composite authentic OJ MUSIC screenshots onto a 1280x800 studio plate if raw screenshots exist locally
+  const hasRawScreens = await fs
+    .access(path.join(ROOT, 'raw-screenshots', 'main_screen.png'))
+    .then(() => true)
+    .catch(() => false);
 
-  const phoneMask = (w, h) =>
-    Buffer.from(`<svg width="${w}" height="${h}"><rect width="${w}" height="${h}" rx="26" ry="26" fill="#fff"/></svg>`);
+  if (hasRawScreens) {
+    const ojBgSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800">
+      <defs>
+        <radialGradient id="ojg" cx="50%" cy="35%" r="65%">
+          <stop offset="0%" stop-color="#C9A869" stop-opacity="0.18"/>
+          <stop offset="55%" stop-color="#1C1C1F" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#0A0A0B"/>
+        </radialGradient>
+      </defs>
+      <rect width="1280" height="800" fill="#0A0A0B"/>
+      <rect width="1280" height="800" fill="url(#ojg)"/>
+      <rect x="36" y="36" width="1208" height="728" rx="18" fill="none" stroke="#FFFFFF" stroke-opacity="0.1"/>
+      <text x="76" y="84" font-family="JetBrains Mono" font-size="13" letter-spacing="3" fill="#C9A869">OJ MUSIC // ANDROID 13-MODULE FLAC CLIENT</text>
+      <text x="1204" y="84" text-anchor="end" font-family="JetBrains Mono" font-size="12" fill="#B8B8BC">KOTLIN · JETPACK COMPOSE · GPLv3</text>
+    </svg>`;
+    const ojBgBuf = await renderSvgToPng(ojBgSvg, 1280, fontFiles);
 
-  const prepScreen = async (file, w, h) => {
-    const raw = await sharp(path.join(ROOT, 'raw-screenshots', file))
-      .resize(w, h, { fit: 'cover', position: 'top' })
-      .composite([{ input: phoneMask(w, h), blend: 'dest-in' }])
-      .png()
-      .toBuffer();
-    return raw;
-  };
+    const phoneMask = (w, h) =>
+      Buffer.from(`<svg width="${w}" height="${h}"><rect width="${w}" height="${h}" rx="26" ry="26" fill="#fff"/></svg>`);
 
-  const leftScreen = await prepScreen('main_screen.png', 286, 580);
-  const centerScreen = await prepScreen('fullplayer.png', 316, 636);
-  const rightScreen = await prepScreen('lyrics_screen.png', 286, 580);
+    const prepScreen = async (file, w, h) => {
+      const raw = await sharp(path.join(ROOT, 'raw-screenshots', file))
+        .resize(w, h, { fit: 'cover', position: 'top' })
+        .composite([{ input: phoneMask(w, h), blend: 'dest-in' }])
+        .png()
+        .toBuffer();
+      return raw;
+    };
 
-  const ojComposite = sharp(ojBgBuf).composite([
-    { input: leftScreen, left: 148, top: 148 },
-    { input: rightScreen, left: 846, top: 148 },
-    { input: centerScreen, left: 482, top: 116 }
-  ]);
-  await ojComposite.clone().webp({ quality: 84 }).toFile(path.join(PUBLIC_OUT, 'work-ojmusic.webp'));
-  await ojComposite.clone().jpeg({ quality: 84, mozjpeg: true }).toFile(path.join(PUBLIC_OUT, 'work-ojmusic.jpg'));
+    const leftScreen = await prepScreen('main_screen.png', 286, 580);
+    const centerScreen = await prepScreen('fullplayer.png', 316, 636);
+    const rightScreen = await prepScreen('lyrics_screen.png', 286, 580);
+
+    const ojComposite = sharp(ojBgBuf).composite([
+      { input: leftScreen, left: 148, top: 148 },
+      { input: rightScreen, left: 846, top: 148 },
+      { input: centerScreen, left: 482, top: 116 }
+    ]);
+    await ojComposite.clone().webp({ quality: 84 }).toFile(path.join(PUBLIC_OUT, 'work-ojmusic.webp'));
+    await ojComposite.clone().jpeg({ quality: 84, mozjpeg: true }).toFile(path.join(PUBLIC_OUT, 'work-ojmusic.jpg'));
+  }
 
   // 5. Render Apex & Downloader architectural system plates (WebP + JPEG)
   const apexPng = await renderSvgToPng(buildApexDiagramSvg(), 1280, fontFiles);
