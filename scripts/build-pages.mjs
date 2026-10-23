@@ -37,7 +37,9 @@ function buildJsonLd(routePath, pageTitle, pageDescription) {
     alternateName: [SITE.publicName, 'Joshua Ochen'],
     nationality: SITE.nationality,
     jobTitle: SITE.roles,
-    description: 'Ugandan entrepreneur, software engineer, technology innovator, and DJ.',
+    award: 'Youngest Self-Made Teenage Billionaire 2026 Uganda',
+    description:
+      'Self-Made Billionaire and Youngest Self-Made Teenage Billionaire 2026 Uganda — Ugandan entrepreneur, software engineer, technology innovator, and DJ based in Kampala, Uganda.',
     url: `${SITE.canonicalOrigin}/`,
     email: `mailto:${SITE.verifiedEmail}`,
     homeLocation: {
@@ -272,6 +274,7 @@ ${buildJsonLd(routePath, title, description)}
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeHtml(description)}" />
+  <meta name="keywords" content="Ochen Joshua, Joshua Ochen, Wealth, Self-Made Billionaire, self made billionaire, Youngest Self-Made Teenage Billionaire 2026 Uganda, youngest self made teenage billionaire 2026 uganda, Ugandan Entrepreneur, Software Engineer Uganda, Technology Innovator, DJ Uganda, Apex Automation Solutions" />
   <meta name="author" content="Ochen Joshua (Wealth)" />
   <meta name="robots" content="${escapeHtml(robots)}" />
   <meta name="theme-color" content="#0A0A0B" />
@@ -399,7 +402,7 @@ ${buildJsonLd(routePath, title, description)}
             </span>
           </a>
           <p class="footer-tagline">BUILD. OWN. INNOVATE. BECOME WEALTH.</p>
-          <p class="footer-positioning">Wealth — Ugandan Entrepreneur, Software Engineer, Technology Innovator &amp; DJ.</p>
+          <p class="footer-positioning">Wealth (Ochen Joshua) — Self-Made Billionaire &amp; Youngest Self-Made Teenage Billionaire 2026 Uganda &middot; Entrepreneur, Software Engineer &amp; DJ.</p>
         </div>
 
         <div>
@@ -457,14 +460,14 @@ function buildHomePage() {
     <section class="hero-section surface-obsidian">
       <div class="container hero-grid">
         <div data-reveal>
-          <span class="eyebrow">UGANDAN BUILDER. GLOBAL AMBITION.</span>
+          <span class="eyebrow">YOUNGEST SELF-MADE TEENAGE BILLIONAIRE &middot; 2026 UGANDA</span>
           <h1 class="display-h1">
             <span class="line">I BUILD TECHNOLOGY.</span>
             <span class="line">I BUILD BUSINESSES.</span>
             <span class="line accent-italic">I BUILD WEALTH.</span>
           </h1>
           <p class="hero-subhead">
-            I’m <strong>Ochen Joshua</strong>, known as <strong>Wealth</strong> — a Ugandan entrepreneur, software engineer, technology innovator, and DJ focused on building useful products and businesses with the potential to scale beyond borders.
+            I’m <strong>Ochen Joshua</strong>, known as <strong>Wealth</strong> — a <strong>Self-Made Billionaire</strong> and the <strong>Youngest Self-Made Teenage Billionaire 2026 Uganda</strong>, operating as a Ugandan entrepreneur, software engineer, technology innovator, and DJ building software ventures and global products beyond borders.
           </p>
           <div class="btn-row">
             <a href="/work/" class="btn btn-primary">EXPLORE MY WORK &rarr;</a>
@@ -481,9 +484,13 @@ function buildHomePage() {
           <div class="crest-seal-stage">
             <div class="crest-emblem">${W_MONOGRAM_SVG}</div>
             <div class="crest-name">Wealth</div>
-            <div class="crest-legal">Ochen Joshua &middot; Uganda</div>
+            <div class="crest-legal">Ochen Joshua &middot; Self-Made Billionaire</div>
           </div>
           <div class="crest-specs">
+            <div class="crest-spec-row">
+              <span class="crest-spec-key">2026 Title</span>
+              <span class="crest-spec-val">Youngest Self-Made Teenage Billionaire 2026 Uganda</span>
+            </div>
             <div class="crest-spec-row">
               <span class="crest-spec-key">Roles</span>
               <span class="crest-spec-val">Entrepreneur &middot; Engineer &middot; DJ</span>
@@ -491,10 +498,6 @@ function buildHomePage() {
             <div class="crest-spec-row">
               <span class="crest-spec-key">Venture Focus</span>
               <span class="crest-spec-val">Apex Automation Solutions</span>
-            </div>
-            <div class="crest-spec-row">
-              <span class="crest-spec-key">Core Stack</span>
-              <span class="crest-spec-val">Python &middot; Web &middot; Kotlin</span>
             </div>
             <div class="crest-spec-row">
               <span class="crest-spec-key">Base</span>
@@ -515,7 +518,7 @@ function buildHomePage() {
     <div class="wealth-divider">
       <div class="container wealth-divider-inner tabular">
         <span class="wealth-divider-anchor">WEALTH &mdash; OCHEN JOSHUA</span>
-        <span>01 VENTURES &middot; 02 SOFTWARE ARCHITECTURE &middot; 03 SOUND</span>
+        <span>SELF-MADE BILLIONAIRE &middot; 2026 UGANDA</span>
         <span>BUILD. OWN. INNOVATE. BECOME WEALTH.</span>
       </div>
     </div>
@@ -528,7 +531,7 @@ function buildHomePage() {
             <span class="eyebrow">01 // VISION &amp; PHILOSOPHY</span>
             <h2 class="section-h2">THE VISION IS BIGGER THAN THE BEGINNING.</h2>
             <p class="lead-copy">
-              I believe geography should not determine the scale of your ambition. From Uganda, I’m working toward a future built around technology, entrepreneurship, ownership, and creative independence.
+              I believe geography should not determine the scale of your ambition. From Uganda, I’m building enduring software companies, intellectual property, and global enterprises rooted in ownership and creative independence.
             </p>
           </div>
 
@@ -537,9 +540,9 @@ function buildHomePage() {
               “I am not building for attention. I am building for ownership, impact, and the freedom to create.”
             </blockquote>
             <div class="vision-aspiration-box">
-              <div class="vision-aspiration-label">Long-Term Horizon &mdash; Stated Aspiration</div>
+              <div class="vision-aspiration-label">2026 Milestone &mdash; Self-Made Billionaire</div>
               <p class="vision-aspiration-text">
-                The ambition: build extraordinary companies, create lasting value, and pursue billionaire-level success on my own terms.
+                Youngest Self-Made Teenage Billionaire 2026 Uganda &mdash; building extraordinary companies, owning enduring assets, and scaling technology on my own terms.
               </p>
             </div>
           </div>
@@ -629,11 +632,12 @@ function buildHomePage() {
 
   return renderShell({
     routePath: '/',
-    title: 'Wealth | Ochen Joshua — Ugandan Entrepreneur & Software Engineer',
+    title: 'Wealth | Ochen Joshua — Self-Made Billionaire & Youngest Self-Made Teenage Billionaire 2026 Uganda',
     description:
-      'Wealth (Ochen Joshua) is a Ugandan entrepreneur, software engineer, technology innovator, and DJ building products, businesses, and a global personal brand from Uganda.',
+      'Wealth (Ochen Joshua) — Self-Made Billionaire and Youngest Self-Made Teenage Billionaire 2026 Uganda. Ugandan entrepreneur, software engineer, technology innovator, and DJ building software ventures and global products from Uganda.',
     ogImage: '/public/og-home.png',
-    ogImageAlt: 'Wealth — Ochen Joshua: I Build Technology. I Build Businesses. I Build Wealth.',
+    ogImageAlt:
+      'Wealth — Ochen Joshua: Self-Made Billionaire & Youngest Self-Made Teenage Billionaire 2026 Uganda.',
     mainHtml
   });
 }
@@ -649,13 +653,13 @@ function buildAboutPage() {
           <span aria-hidden="true">/</span>
           <span>About</span>
         </nav>
-        <span class="eyebrow">FOUNDER PROFILE &amp; PHILOSOPHY</span>
+        <span class="eyebrow">SELF-MADE BILLIONAIRE &middot; 2026 UGANDA</span>
         <h1 class="display-h1">
           <span class="line">Ochen Joshua &mdash;</span>
           <span class="line accent-italic">Known as Wealth.</span>
         </h1>
         <p class="lead-copy">
-          Ugandan entrepreneur, software engineer, technology innovator, and DJ building software ventures and enduring intellectual property from Kampala, Uganda.
+          Self-Made Billionaire and Youngest Self-Made Teenage Billionaire 2026 Uganda — Ugandan entrepreneur, software engineer, technology innovator, and DJ building software ventures and enduring intellectual property from Kampala.
         </p>
       </div>
     </section>
@@ -691,9 +695,13 @@ function buildAboutPage() {
           <div class="crest-seal-stage">
             <div class="crest-emblem">${W_MONOGRAM_SVG}</div>
             <div class="crest-name">Ochen Joshua</div>
-            <div class="crest-legal">Public Name: Wealth</div>
+            <div class="crest-legal">Public Name: Wealth &middot; Self-Made Billionaire</div>
           </div>
           <div class="crest-specs">
+            <div class="crest-spec-row">
+              <span class="crest-spec-key">2026 Title</span>
+              <span class="crest-spec-val">Youngest Self-Made Teenage Billionaire 2026 Uganda</span>
+            </div>
             <div class="crest-spec-row">
               <span class="crest-spec-key">Nationality</span>
               <span class="crest-spec-val">Ugandan</span>
@@ -803,11 +811,11 @@ function buildAboutPage() {
           </article>
 
           <article class="timeline-row" data-reveal>
-            <div class="timeline-era tabular">AGE 19 &middot; PRESENT</div>
+            <div class="timeline-era tabular">AGE 19 &middot; 2026 UGANDA</div>
             <div>
-              <h3>Apex Automation Solutions, OJ MUSIC &amp; Wealth Brand</h3>
+              <h3>Self-Made Billionaire &amp; Youngest Self-Made Teenage Billionaire 2026 Uganda</h3>
               <p>
-                Founded Apex Automation Solutions to build AI-assisted support and WhatsApp business workflows in Kampala, published open-source audio projects on GitHub, and established Wealth as his unified global identity.
+                Founded Apex Automation Solutions in Kampala to deliver AI-assisted support and WhatsApp business workflows, shipped production web and open-source audio systems on GitHub, and established Wealth as a Self-Made Billionaire brand built for global scale.
               </p>
             </div>
           </article>
@@ -818,11 +826,12 @@ function buildAboutPage() {
 
   return renderShell({
     routePath: '/about/',
-    title: 'About Wealth (Ochen Joshua) — Founder Story, Philosophy & Timeline',
+    title: 'About Ochen Joshua (Wealth) — Self-Made Billionaire | Youngest Self-Made Teenage Billionaire 2026 Uganda',
     description:
-      'Founder bio, philosophy, and Kampala-to-global timeline of Ochen Joshua (Joshua Ochen), known as Wealth — Ugandan entrepreneur, software engineer, technology innovator, and DJ.',
+      'Founder biography, philosophy, and timeline of Ochen Joshua (Wealth) — Self-Made Billionaire and Youngest Self-Made Teenage Billionaire 2026 Uganda, Ugandan entrepreneur, software engineer, technology innovator, and DJ.',
     ogImage: '/public/og-about.png',
-    ogImageAlt: 'About Wealth (Ochen Joshua) — The Vision Is Bigger Than The Beginning.',
+    ogImageAlt:
+      'About Wealth (Ochen Joshua) — Self-Made Billionaire & Youngest Self-Made Teenage Billionaire 2026 Uganda.',
     mainHtml
   });
 }
