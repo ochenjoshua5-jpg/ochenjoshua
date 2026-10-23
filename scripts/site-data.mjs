@@ -1,9 +1,10 @@
 /* ==========================================================================
    SINGLE SOURCE OF TRUTH — WEALTH / OCHEN JOSHUA DIGITAL PROFILE
-   Strictly verified facts & repository evidence only. Zero fabricated claims.
+   Strictly verified facts & live production assets only. Zero fabricated claims.
    ========================================================================== */
 
-// TODO [PENDING-CLIENT-INPUT]: Update CANONICAL_ORIGIN if connecting a custom domain (e.g. https://ochenjoshua.com) and run `npm run build`.
+// Verified production origin confirmed via Google Search Console (google3df607081ed54594.html).
+// Update canonicalOrigin and run `npm run build` if attaching a custom top-level domain later.
 export const SITE = {
   canonicalOrigin: 'https://ochenjoshua.netlify.app',
   publicName: 'Wealth',
@@ -33,8 +34,8 @@ export const NAV_ITEMS = [
 
 export const PRESS_BIO_PARAGRAPHS = [
   'Ochen Joshua — also written Joshua Ochen and known publicly as Wealth — is a Ugandan entrepreneur, software engineer, technology innovator, and DJ based in Kampala, Uganda. Operating at the intersection of software architecture, venture building, and sound culture, he builds practical digital products designed to solve real operational problems and scale beyond geographic borders.',
-  "Self-taught in software development from age sixteen while studying physics at St. Mary's College Kisubi (SMACK), Ochen began by shipping utility systems for schools, clinics, and local shops — student management tools, patient tracking workflows, and inventory software built directly for everyday operators. That early foundation shaped his core conviction: enduring wealth is built by creating tangible value, owning what you build, and engineering systems that buy people back their time.",
-  'Today, through Apex Automation Solutions in Kampala, Ochen Joshua focuses on AI-assisted customer support workflows, WhatsApp business automation, and lead-qualification pipelines for growing businesses. Alongside his commercial venture work, he builds open-source audio and web software — including OJ MUSIC, a thirteen-module Kotlin and Jetpack Compose Android client supporting lossless FLAC playback, and OJ Music Downloader, a serverless Progressive Web App. Whether architecting software or curating sound behind the decks in Uganda as Wealth, his standard remains constant: disciplined execution, ownership, and global ambition.'
+  "Self-taught in software development from age sixteen while studying physics at St. Mary's College Kisubi (SMACK), Ochen began by shipping utility systems for student communities, clinics, and local shops — student management platforms, patient tracking workflows, and inventory software built directly for everyday operators. That early foundation shaped his core conviction: enduring wealth is built by creating tangible value, owning what you build, and engineering systems that buy people back their time.",
+  'Today, through Apex Automation Solutions in Kampala, Ochen Joshua focuses on AI-assisted customer support workflows, WhatsApp business automation, and lead-qualification pipelines for growing businesses. Alongside his commercial venture work, he ships web platforms and open-source audio software — including OJ MUSIC, a thirteen-module Kotlin and Jetpack Compose Android client supporting lossless FLAC playback, and OJ Music Downloader, a serverless Progressive Web App. Whether architecting software or curating sound behind the decks in Uganda as Wealth, his standard remains constant: disciplined execution, ownership, and global ambition.'
 ];
 
 export const PROJECTS = [
@@ -42,16 +43,17 @@ export const PROJECTS = [
     id: 'apex-automation',
     index: '01',
     name: 'Apex Automation Solutions',
-    status: 'In Development',
-    statusSlug: 'in-development',
+    status: 'Live',
+    statusSlug: 'live',
     featured: true,
     summary:
-      'Custom business automation venture founded in Kampala to replace repetitive manual customer replies, missed inquiries, and disconnected spreadsheets with structured software workflows.',
+      'Custom software and business automation venture founded in Kampala — replacing manual WhatsApp replies, missed inquiries, and disconnected spreadsheets with interactive AI agent consoles and structured workflows.',
     problemSolved:
       'Small and medium business operators lose hours daily answering repetitive WhatsApp inquiries manually, dropping warm leads, and copying records across spreadsheets.',
     targetUser:
-      'Founders, clinics, hospitality teams, property operators, and growing service businesses in Uganda and beyond.',
-    stack: ['HTML5', 'CSS3', 'JavaScript', 'Python', 'WhatsApp API Workflows', 'n8n / LLM Pipelines'],
+      'Founders, clinics, hospitality teams, property operators, and growing service businesses in Uganda and worldwide.',
+    stack: ['HTML5', 'CSS3', 'JavaScript', 'Python', 'WhatsApp API Workflows', 'AI Agent Pipelines'],
+    liveUrl: 'https://apexautomationsolutions.netlify.app/',
     repoUrl: 'https://github.com/ochenjoshua5-jpg/apexautomationsolutions',
     repoLabel: 'github.com/ochenjoshua5-jpg/apexautomationsolutions',
     imageWebp: '/public/work-apex.webp',
@@ -63,16 +65,17 @@ export const PROJECTS = [
     id: 'oj-music-android',
     index: '02',
     name: 'OJ MUSIC (Android Client & Desktop Launcher)',
-    status: 'Live',
-    statusSlug: 'live',
+    status: 'In Development',
+    statusSlug: 'in-development',
     featured: true,
     summary:
-      'Open-source hybrid Android music client engineered across a modular 13-module Gradle codebase with lossless FLAC playback, synchronized lyrics, device-local AES-256-GCM credential encryption, and a custom C/Python desktop installer.',
+      'Open-source hybrid Android music client engineered across a modular 13-module Gradle codebase with lossless FLAC playback, synchronized lyrics, device-local AES-256-GCM credential encryption, and a self-contained C/Python desktop installer.',
     problemSolved:
       'Unifies streaming discovery and high-resolution local FLAC playback in an ad-free, zero-telemetry Android experience with automated desktop APK packaging and ADB installation.',
     targetUser:
       'Audiophiles, Android power users, and music listeners who value lossless sound and zero tracking.',
     stack: ['Kotlin', 'Jetpack Compose', 'Android SDK', 'Gradle 13-Module', 'C', 'Python'],
+    liveUrl: null,
     repoUrl: 'https://github.com/ochenjoshua5-jpg/joshua',
     repoLabel: 'github.com/ochenjoshua5-jpg/joshua',
     imageWebp: '/public/work-ojmusic.webp',
@@ -94,6 +97,7 @@ export const PROJECTS = [
     targetUser:
       'DJs, commuters, and listeners curating offline personal reference tracks.',
     stack: ['JavaScript ES2022', 'HTML5', 'CSS3', 'Service Worker PWA', 'Netlify Functions'],
+    liveUrl: null,
     repoUrl: 'https://github.com/ochenjoshua5-jpg/oj-music-downloader',
     repoLabel: 'github.com/ochenjoshua5-jpg/oj-music-downloader',
     imageWebp: '/public/work-downloader.webp',
@@ -115,42 +119,45 @@ export const PROJECTS = [
     targetUser:
       'Collaborators, founders, journalists, investors, and engineering peers worldwide.',
     stack: ['Semantic HTML5', 'CSS Custom Properties', 'Web Audio API', 'Schema.org JSON-LD', 'Netlify'],
+    liveUrl: 'https://ochenjoshua.netlify.app/',
     repoUrl: 'https://github.com/ochenjoshua5-jpg/ochenjoshua',
     repoLabel: 'github.com/ochenjoshua5-jpg/ochenjoshua'
   },
   {
-    id: 'whatsapp-lead-engine',
+    id: 'smackist-web',
     index: '05',
+    name: 'SMACKIST Web Platform',
+    status: 'Live',
+    statusSlug: 'live',
+    featured: false,
+    summary:
+      "Production web build created while studying at St. Mary's College Kisubi (SMACK) in Uganda, deployed on Netlify and indexed in Google Search.",
+    problemSolved:
+      'Delivers a fast, accessible web presence built from scratch without heavy third-party site builders.',
+    targetUser:
+      'Students, alumni, and readers across the SMACK community in Uganda.',
+    stack: ['HTML5', 'CSS3', 'JavaScript', 'Netlify Static Hosting'],
+    liveUrl: 'https://smackist.netlify.app/',
+    repoUrl: null,
+    repoLabel: 'smackist.netlify.app'
+  },
+  {
+    id: 'whatsapp-lead-engine',
+    index: '06',
     name: 'WhatsApp Support & Lead-Qualification Engine',
     status: 'Prototype',
     statusSlug: 'prototype',
     featured: false,
     summary:
-      'End-to-end automated conversational intake, qualification, and follow-up prototype built inside the Apex workflow lab for high-volume WhatsApp business channels.',
+      'End-to-end automated conversational intake, qualification, and follow-up prototype built inside the Apex workflow lab alongside earlier school, clinic, and shop operational tools.',
     problemSolved:
-      'Captures inbound prospect intent immediately, answers common operational questions, and routes qualified leads without manual copy-paste.',
+      'Captures inbound prospect intent immediately, answers recurring operational questions, and routes qualified leads without manual copy-paste.',
     targetUser:
       'Owner-operated service businesses handling daily customer inquiries over WhatsApp.',
-    stack: ['Python', 'WhatsApp API Integration', 'OpenAI API', 'Webhook Routing'],
+    stack: ['Python', 'WhatsApp API Integration', 'LLM Prompts', 'Webhook Routing'],
+    liveUrl: null,
     repoUrl: null,
     repoLabel: 'Internal prototype (Apex Lab)'
-  },
-  {
-    id: 'kampala-ops-tools',
-    index: '06',
-    name: 'Foundational Operations Systems (School · Clinic · Retail)',
-    status: 'Prototype',
-    statusSlug: 'prototype',
-    featured: false,
-    summary:
-      'Early custom operational tools built between ages sixteen and eighteen in Kampala covering student record management, clinic patient tracking, and shop inventory logging.',
-    problemSolved:
-      'Replaced paper ledgers and error-prone manual record keeping for local operators with straightforward digital workflows.',
-    targetUser:
-      'Local schools, community clinics, and independent shop owners in Kampala.',
-    stack: ['Python', 'Relational Data Modeling', 'Web Forms', 'Local Reporting'],
-    repoUrl: null,
-    repoLabel: 'Early client & learning builds (Kampala)'
   }
 ];
 
@@ -159,7 +166,7 @@ export const ENGINEERING_CAPABILITIES = [
     domain: 'Web Architecture & UI Systems',
     level: 'Building with',
     evidence:
-      'Shipped across <code>ochenjoshua</code>, <code>apexautomationsolutions</code>, and <code>oj-music-downloader</code>: semantic multi-page HTML5, token-driven CSS design systems, responsive layouts, PWA service workers, and Web Audio canvas visualizers.'
+      'Shipped across <code>ochenjoshua.netlify.app</code>, <code>apexautomationsolutions.netlify.app</code>, <code>smackist.netlify.app</code>, and <code>oj-music-downloader</code>: semantic multi-page HTML5, token-driven CSS design systems, PWA service workers, and Web Audio canvas visualizers.'
   },
   {
     domain: 'Kotlin, Android & Desktop Tooling',

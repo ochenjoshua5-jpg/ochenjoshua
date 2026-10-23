@@ -119,9 +119,21 @@ function renderProjectPlate(project, idx, headingTag = 'h3') {
       ? 'status-development'
       : 'status-prototype';
 
-  const actionHtml = project.repoUrl
-    ? `<a href="${escapeHtml(project.repoUrl)}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Inspect Repository &rarr;</a>`
-    : `<a href="/contact/" class="btn btn-secondary">Request Architecture Walkthrough &rarr;</a>`;
+  const actions = [];
+  if (project.liveUrl) {
+    actions.push(
+      `<a href="${escapeHtml(project.liveUrl)}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Launch Live Site &nearr;</a>`
+    );
+  }
+  if (project.repoUrl) {
+    actions.push(
+      `<a href="${escapeHtml(project.repoUrl)}" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Inspect Repository &rarr;</a>`
+    );
+  }
+  if (!actions.length) {
+    actions.push(`<a href="/contact/" class="btn btn-secondary">Request Architecture Walkthrough &rarr;</a>`);
+  }
+  const actionHtml = actions.join('\n        ');
 
   return `
   <article class="project-plate${reversedClass}" data-project-status="${escapeHtml(project.statusSlug)}" data-reveal>
@@ -176,8 +188,19 @@ function renderLedgerProjectCard(project) {
       ? 'status-development'
       : 'status-prototype';
 
-  const footerLink = project.repoUrl
-    ? `<a href="${escapeHtml(project.repoUrl)}" class="btn btn-subtle" target="_blank" rel="noopener noreferrer">View Source Repository &rarr;</a>`
+  const ledgerActions = [];
+  if (project.liveUrl) {
+    ledgerActions.push(
+      `<a href="${escapeHtml(project.liveUrl)}" class="btn btn-subtle" target="_blank" rel="noopener noreferrer">Visit Live Site &nearr;</a>`
+    );
+  }
+  if (project.repoUrl) {
+    ledgerActions.push(
+      `<a href="${escapeHtml(project.repoUrl)}" class="btn btn-subtle" target="_blank" rel="noopener noreferrer">Source Repo &rarr;</a>`
+    );
+  }
+  const footerLink = ledgerActions.length
+    ? `<div class="btn-row">${ledgerActions.join('')}</div>`
     : `<span class="project-index">${escapeHtml(project.repoLabel)}</span>`;
 
   return `

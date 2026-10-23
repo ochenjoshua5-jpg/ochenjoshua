@@ -177,11 +177,11 @@ test('6. Interactive /work/ filter, /engineering/ keyboard tabs, mobile drawer E
   // Work filter interaction + URL deep link
   const workCtx = await createRuntimeDom('work/index.html', { urlPath: '/work/?status=live' });
   const visibleLive = Array.from(workCtx.doc.querySelectorAll('[data-project-status]')).filter((el) => !el.hidden);
-  assert.equal(visibleLive.length, 2, 'Deep-linked ?status=live filters to 2 live builds');
+  assert.equal(visibleLive.length, 3, 'Deep-linked ?status=live filters to 3 verified live builds');
 
   workCtx.doc.querySelector('[data-work-filter="prototype"]').click();
   const visibleProto = Array.from(workCtx.doc.querySelectorAll('[data-project-status]')).filter((el) => !el.hidden);
-  assert.equal(visibleProto.length, 3, 'Clicking Prototype shows 3 prototype builds');
+  assert.equal(visibleProto.length, 2, 'Clicking Prototype shows 2 prototype builds');
   workCtx.dom.window.close();
 
   // Engineering code tabs keyboard navigation
