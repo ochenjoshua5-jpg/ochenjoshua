@@ -1,0 +1,7 @@
+node_modules/
+raw-screenshots/
+.DS_Store
+*.log
+.cache/
+Unselected files/
+

@@ -1,1845 +1,566 @@
 <!DOCTYPE html>
-<!--
-  ============================================================
-  OCHEN JOSHUA — Personal Site
-  Apex Automation Solutions founder site
-
-  FILE STRUCTURE (so you can find things in VS Code):
-    Ctrl+F and search for these section headers ↓
-  ============================================================
-
-  [1]  HEAD (fonts + meta)
-  [2]  CSS VARIABLES (colors, fonts — edit me to retheme)
-  [3]  TOP BAR / NAV
-  [4]  HERO
-  [5]  STICKY NOTE BLOCK
-  [6]  ABOUT (me + sidebar)
-  [7]  JOURNEY / TIMELINE
-  [8]  WHY I STARTED APEX
-  [9]  WHAT I'VE BUILT (6 product cards)
-  [10] WINS / PROOF
-  [11] QUOTES
-  [12] FUTURE / WHERE I'M GOING
-  [13] GALLERY
-  [14] CONTACT
-  [15] FOOTER
-  [16] JAVASCRIPT
-  [17] RESPONSIVE STYLES
-
-  ============================================================
--->
 <html lang="en">
 <head>
-  <!-- [1] HEAD -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wealth | Ochen Joshua — Ugandan Entrepreneur &amp; Software Engineer</title>
+  <meta name="description" content="Wealth (Ochen Joshua) is a Ugandan entrepreneur, software engineer, technology innovator, and DJ building products, businesses, and a global personal brand from Uganda." />
+  <meta name="author" content="Ochen Joshua (Wealth)" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#0A0A0B" />
 
-  <!-- Edit this line — it shows up in Google + browser tab -->
-  <title>Ochen Joshua — I build things.</title>
+  <!-- TODO [PENDING-CLIENT-INPUT]: Update canonical domain in scripts/site-data.mjs if attaching a custom domain -->
+  <link rel="canonical" href="https://ochenjoshua.netlify.app/" />
 
-  <!-- Edit this line — it shows up in Google search results -->
-  <meta name="description" content="Ochen Joshua — I build things. Apex Automation Solutions is what I'm building right now." />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Wealth — Ochen Joshua" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Wealth | Ochen Joshua — Ugandan Entrepreneur &amp; Software Engineer" />
+  <meta property="og:description" content="Wealth (Ochen Joshua) is a Ugandan entrepreneur, software engineer, technology innovator, and DJ building products, businesses, and a global personal brand from Uganda." />
+  <meta property="og:url" content="https://ochenjoshua.netlify.app/" />
+  <meta property="og:image" content="https://ochenjoshua.netlify.app/public/og-home.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Wealth — Ochen Joshua: I Build Technology. I Build Businesses. I Build Wealth." />
 
-  <!-- Google Fonts (free, fast). Keep these or change to fonts you like. -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Wealth | Ochen Joshua — Ugandan Entrepreneur &amp; Software Engineer" />
+  <meta name="twitter:description" content="Wealth (Ochen Joshua) is a Ugandan entrepreneur, software engineer, technology innovator, and DJ building products, businesses, and a global personal brand from Uganda." />
+  <meta name="twitter:image" content="https://ochenjoshua.netlify.app/public/og-home.png" />
+  <meta name="twitter:image:alt" content="Wealth — Ochen Joshua: I Build Technology. I Build Businesses. I Build Wealth." />
 
-<style>
-  /* ============================================================
-     [2] CSS VARIABLES — change these to retheme the whole site
-     ============================================================ */
-  :root {
-    /* Dark backgrounds (used for the dark cards/sections) */
-    --bg: #0d0d0e;        /* main dark — almost black */
-    --bg-2: #131316;
-    --bg-3: #1a1a1f;
+  <!-- Custom "W" Wordmark Favicons & App Manifest -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
-    /* Light backgrounds (used for the main page) */
-    --paper: #f5f3ee;     /* warm cream — main page background */
-    --paper-2: #e8e4d8;   /* slightly darker cream — sticky notes */
+  <!-- Preload Primary Self-Hosted Subsets (Zero Render-Blocking Font Requests) -->
+  <link rel="preload" href="/assets/fonts/cormorant-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
 
-    /* Text colors */
-    --ink: #0d0d0e;       /* darkest — main headings */
-    --ink-2: #1a1a1f;
-    --text: #1a1a1f;      /* body text */
-    --text-2: #4a4a52;    /* secondary text */
-    --text-3: #8a8a92;    /* muted text — labels, captions */
-
-    /* Lines / borders */
-    --line: rgba(0,0,0,0.1);
-    --line-2: rgba(0,0,0,0.18);
-
-    /* Accent colors — these are the brand colors */
-    --warm: #d4a373;      /* warm tan — highlights, hover */
-    --warm-2: #b8895a;    /* darker tan — emphasized text */
-    --green: #4a7c59;     /* green — status, "available" */
-    --red: #c84a3a;       /* red — strike-through accent */
-
-    /* Font families — change here to swap fonts everywhere */
-    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --serif: 'Instrument Serif', Georgia, serif;
-    --mono: 'JetBrains Mono', 'Courier New', monospace;
-  }
-
-  /* Reset — leave this alone */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-
-  body {
-    background: var(--paper);
-    color: var(--text);
-    font-family: var(--sans);
-    font-weight: 400;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  ::selection { background: var(--ink); color: var(--paper); }
-  a { color: inherit; text-decoration: none; }
-  img { max-width: 100%; display: block; }
-
-  /* Max width container — 1100px keeps the line lengths readable */
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-
-  /* ============================================================
-     [3] TOP BAR / NAV
-     ============================================================ */
-  .topbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--paper);
-    border-bottom: 1px solid var(--line);
-    padding: 14px 0;
-  }
-  .topbar-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-  }
-  .me {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    font-size: 15px;
-  }
-  /* The pulsing green dot — animated */
-  .me-dot {
-    width: 10px; height: 10px;
-    background: var(--green);
-    border-radius: 50%;
-    box-shadow: 0 0 0 0 rgba(74,124,89,0.6);
-    animation: ping 2.4s ease-in-out infinite;
-  }
-  @keyframes ping {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(74,124,89,0.5); }
-    50% { box-shadow: 0 0 0 8px rgba(74,124,89,0); }
-  }
-  .me-sub {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-3);
-    font-weight: 400;
-  }
-  .topbar nav {
-    display: flex;
-    gap: 22px;
-    align-items: center;
-  }
-  .topbar nav a {
-    font-size: 14px;
-    color: var(--text-2);
-    transition: color 0.2s;
-  }
-  .topbar nav a:hover { color: var(--ink); }
-  .topbar-cta {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 8px 14px;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 500;
-    transition: transform 0.2s;
-  }
-  .topbar-cta:hover { transform: translateY(-1px); }
-
-
-  /* ============================================================
-     [4] HERO
-     ============================================================ */
-  .hero {
-    padding: 80px 0 60px;
-    position: relative;
-  }
-  .hero-meta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 40px;
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text-3);
-    flex-wrap: wrap;
-  }
-  .hero-meta .dot {
-    width: 4px; height: 4px;
-    background: var(--text-3);
-    border-radius: 50%;
-  }
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(48px, 9vw, 112px);  /* responsive size */
-    line-height: 0.98;
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 32px;
-  }
-  .hero h1 em { font-style: italic; color: var(--warm-2); }
-
-  /* The red hand-drawn strike-through on the word "work." */
-  .hero h1 .strike { position: relative; display: inline-block; }
-  .hero h1 .strike::after {
-    content: "";
-    position: absolute;
-    left: -2px; right: -2px;
-    top: 52%;
-    height: 4px;
-    background: var(--red);
-    transform: rotate(-1.5deg);
-    border-radius: 2px;
-  }
-
-  /* The warm highlighter under the word "build" */
-  .hero h1 .underline { position: relative; display: inline-block; }
-  .hero h1 .underline::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0;
-    bottom: 6px;
-    height: 8px;
-    background: var(--warm);
-    opacity: 0.5;
-    z-index: -1;
-    border-radius: 4px;
-  }
-
-  .hero-sub {
-    font-size: 19px;
-    line-height: 1.55;
-    color: var(--text-2);
-    max-width: 620px;
-    margin-bottom: 40px;
-    font-weight: 400;
-  }
-  .hero-sub strong {
-    color: var(--ink);
-    font-weight: 600;
-    background: linear-gradient(180deg, transparent 65%, var(--warm) 65%, var(--warm) 90%, transparent 90%);
-    padding: 0 2px;
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 60px;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 22px;
-    border-radius: 12px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.2s;
-    cursor: pointer;
-    border: 1px solid transparent;
-  }
-  .btn-primary { background: var(--ink); color: var(--paper); }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(13,13,14,0.18); }
-  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-2); }
-  .btn-ghost:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-
-  .hero-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding-top: 24px;
-    border-top: 1px dashed var(--line-2);
-  }
-  .tag {
-    font-family: var(--mono);
-    font-size: 11px;
-    padding: 6px 10px;
-    background: var(--paper-2);
-    border-radius: 6px;
-    color: var(--text-2);
-  }
-  .tag .key { color: var(--text-3); }
-
-
-  /* ============================================================
-     [5] STICKY NOTE BLOCK (the highlighted quote cards)
-     ============================================================ */
-  .note {
-    background: var(--paper-2);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 28px 32px;
-    position: relative;
-    margin: 40px 0;
-  }
-  /* The red line on the left side, like a notebook margin */
-  .note::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 32px;
-    width: 2px;
-    height: 100%;
-    background: var(--red);
-    opacity: 0.4;
-  }
-  .note-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-3);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 12px;
-  }
-  .note p {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 22px;
-    line-height: 1.45;
-    color: var(--ink);
-  }
-
-
-  /* ============================================================
-     SECTION HEADERS — shared by every section
-     ============================================================ */
-  section { padding: 80px 0; }
-  .sec-head {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
-  .sec-num {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text-3);
-    padding: 2px 8px;
-    border: 1px solid var(--line-2);
-    border-radius: 4px;
-  }
-  .sec-title {
-    font-family: var(--serif);
-    font-size: clamp(36px, 5vw, 56px);
-    line-height: 1.05;
-    font-weight: 400;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-  }
-  .sec-title em { font-style: italic; color: var(--warm-2); }
-
-
-  /* ============================================================
-     [6] ABOUT — me, written like a bio
-     ============================================================ */
-  .about { border-top: 1px solid var(--line); }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;  /* text wider than sidebar */
-    gap: 60px;
-    align-items: start;
-  }
-  .about-text p {
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--text);
-    margin-bottom: 20px;
-  }
-  /* Big drop-cap "M" on the first paragraph */
-  .about-text p:first-of-type::first-letter {
-    font-family: var(--serif);
-    font-size: 64px;
-    line-height: 0.85;
-    float: left;
-    margin: 6px 10px 0 0;
-    color: var(--warm-2);
-  }
-  .about-text em { font-style: italic; color: var(--ink); font-weight: 500; }
-  .about-text strong { color: var(--ink); font-weight: 600; }
-
-  /* The dark sidebar card on the right of the about section */
-  .about-side {
-    background: var(--bg);
-    color: var(--paper);
-    padding: 32px;
-    border-radius: 12px;
-    position: relative;
-    overflow: hidden;
-  }
-  .profile-image-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 22px;
-  }
-  .profile-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.9);
-    object-fit: cover;
-    display: block;
-  }
-  /* The "// who is this guy" watermark in the corner */
-  .about-side::before {
-    content: "// who is this guy";
-    position: absolute;
-    top: 12px; right: 16px;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-3);
-  }
-  .about-side .field {
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    display: grid;
-    grid-template-columns: 90px 1fr;
-    gap: 12px;
-    font-size: 14px;
-  }
-  .about-side .field:last-child { border-bottom: none; }
-  .about-side .field .k {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-3);
-    text-transform: uppercase;
-    padding-top: 2px;
-  }
-  .about-side .field .v { color: var(--paper); }
-  .about-side .field .v em { color: var(--warm); font-style: italic; }
-
-
-  /* ============================================================
-     [7] JOURNEY / TIMELINE
-     ============================================================ */
-  .journey {
-    background: var(--bg);
-    color: var(--paper);
-    border-radius: 16px;
-    padding: 60px 40px;
-    margin: 40px 0;
-  }
-  .journey .sec-title { color: var(--paper); }
-  .journey .sec-num { color: var(--text-3); border-color: rgba(255,255,255,0.2); }
-  .timeline { margin-top: 40px; }
-  .t-item {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 32px;
-    padding: 24px 0;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    align-items: start;
-  }
-  .t-item:last-child { border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .t-when {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--warm);
-    padding-top: 4px;
-  }
-  .t-what h3 {
-    font-family: var(--serif);
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--paper);
-    margin-bottom: 8px;
-    line-height: 1.2;
-  }
-  .t-what h3 em { color: var(--warm); font-style: italic; }
-  .t-what p {
-    font-size: 15px;
-    line-height: 1.65;
-    color: rgba(245,243,238,0.7);
-  }
-
-
-  /* ============================================================
-     [8] WHY I STARTED APEX
-     ============================================================ */
-  .apex-born .born-statement {
-    font-family: var(--serif);
-    font-size: clamp(28px, 3.5vw, 44px);
-    line-height: 1.25;
-    color: var(--ink);
-    margin-bottom: 32px;
-    font-weight: 400;
-  }
-  .apex-born .born-statement em { color: var(--warm-2); font-style: italic; }
-  .apex-born .born-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-  }
-  .apex-born .born-body p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--text);
-    margin-bottom: 18px;
-  }
-  .apex-born .born-body strong { color: var(--ink); font-weight: 600; }
-  .apex-born .born-body em { color: var(--warm-2); font-style: italic; font-weight: 500; }
-
-
-  /* ============================================================
-     [9] WHAT I'VE BUILT (6 product capability cards)
-     ============================================================ */
-  .features {
-    background: var(--bg);
-    color: var(--paper);
-    border-radius: 16px;
-    padding: 60px 40px;
-    margin: 40px 0;
-  }
-  .features .sec-title { color: var(--paper); }
-  .features .sec-num { color: var(--text-3); border-color: rgba(255,255,255,0.2); }
-  .feat-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);  /* 2 columns */
-    gap: 16px;
-    margin-top: 40px;
-  }
-  .feat {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 12px;
-    padding: 28px;
-    transition: all 0.2s;
-  }
-  .feat:hover {
-    background: rgba(255,255,255,0.07);
-    border-color: var(--warm);
-    transform: translateY(-2px);
-  }
-  .feat-icon {
-    width: 36px; height: 36px;
-    background: var(--warm);
-    color: var(--bg);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 16px;
-    margin-bottom: 16px;
-    font-family: var(--mono);
-  }
-  .feat h3 {
-    font-family: var(--serif);
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--paper);
-    margin-bottom: 10px;
-    line-height: 1.2;
-  }
-  .feat h3 em { color: var(--warm); font-style: italic; }
-  .feat p {
-    font-size: 14.5px;
-    line-height: 1.6;
-    color: rgba(245,243,238,0.65);
-    margin-bottom: 14px;
-  }
-  .feat-meta {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-3);
-  }
-
-  /* The warm "doctrine" callout inside the features section */
-  .features .doctrine {
-    margin-top: 40px;
-    padding: 32px;
-    background: var(--warm);
-    color: var(--bg);
-    border-radius: 12px;
-    text-align: center;
-  }
-  .features .doctrine p {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(20px, 2.4vw, 28px);
-    line-height: 1.35;
-  }
-  .features .doctrine p strong { font-weight: 600; font-style: normal; }
-
-
-  /* ============================================================
-     [10] WINS / PROOF
-     ============================================================ */
-  .wins-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);  /* 4 stat cards in a row */
-    gap: 12px;
-    margin-bottom: 40px;
-  }
-  .win {
-    padding: 20px;
-    border: 1px solid var(--line-2);
-    border-radius: 10px;
-    background: var(--paper);
-  }
-  .win .w-num {
-    font-family: var(--serif);
-    font-size: 36px;
-    color: var(--warm-2);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .win .w-lbl {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-3);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  .win p {
-    font-size: 13px;
-    color: var(--text-2);
-    margin-top: 8px;
-    line-height: 1.5;
-  }
-
-  /* The "log" table below the stat cards */
-  .log {
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .log-row {
-    display: grid;
-    grid-template-columns: 60px 1.4fr 2fr 100px;
-    gap: 20px;
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--line);
-    align-items: center;
-    font-size: 14px;
-    transition: background 0.2s;
-  }
-  .log-row:last-child { border-bottom: none; }
-  .log-row:hover { background: var(--paper-2); }
-  .log-row .n {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--warm-2);
-  }
-  .log-row .h { font-weight: 600; color: var(--ink); }
-  .log-row .h em { font-weight: 400; font-style: italic; color: var(--warm-2); }
-  .log-row .d { color: var(--text-2); font-size: 13.5px; line-height: 1.5; }
-  .log-row .t {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-3);
-    text-align: right;
-  }
-
-
-  /* ============================================================
-     [11] QUOTES SECTION
-     ============================================================ */
-  .quotes {
-    background: var(--bg);
-    color: var(--paper);
-    border-radius: 16px;
-    padding: 60px 40px;
-    margin: 40px 0;
-    text-align: center;
-  }
-  .quotes .big {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: clamp(28px, 4vw, 48px);
-    line-height: 1.2;
-    color: var(--paper);
-    margin-bottom: 16px;
-    font-weight: 400;
-  }
-  .quotes .big strong {
-    color: var(--warm);
-    font-weight: 400;
-    font-style: italic;
-  }
-  .quotes .by {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text-3);
-    margin-bottom: 40px;
-  }
-  .qgrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: left;
-  }
-  .qcell {
-    background: var(--bg);
-    padding: 28px;
-  }
-  .qcell .qn {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--warm);
-    margin-bottom: 12px;
-  }
-  .qcell .qt {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 19px;
-    line-height: 1.35;
-    color: var(--paper);
-  }
-  .qcell .qt strong { color: var(--warm); font-weight: 400; font-style: normal; }
-
-
-  /* ============================================================
-     [12] FUTURE / WHERE I'M GOING
-     ============================================================ */
-  .future-statement {
-    font-family: var(--serif);
-    font-size: clamp(28px, 4vw, 48px);
-    line-height: 1.2;
-    color: var(--ink);
-    margin-bottom: 40px;
-    font-weight: 400;
-  }
-  .future-statement em { color: var(--warm-2); font-style: italic; }
-  .phases {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  .phase {
-    padding: 24px;
-    border: 1px solid var(--line-2);
-    border-radius: 10px;
-    background: var(--paper);
-  }
-  .phase .when {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--warm-2);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 12px;
-  }
-  .phase h4 {
-    font-family: var(--serif);
-    font-size: 22px;
-    color: var(--ink);
-    font-weight: 400;
-    margin-bottom: 10px;
-    line-height: 1.2;
-  }
-  .phase h4 em { color: var(--warm-2); font-style: italic; }
-  .phase p {
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--text-2);
-  }
-
-
-  /* ============================================================
-     [13] GALLERY
-     ============================================================ */
-  .gallery {
-    background: var(--bg);
-    color: var(--paper);
-    border-radius: 16px;
-    padding: 60px 40px;
-    margin: 40px 0;
-  }
-  .gallery .sec-title { color: var(--paper); }
-  .gallery .sec-num { color: var(--text-3); border-color: rgba(255,255,255,0.2); }
-  .ggrid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: 160px;
-    gap: 12px;
-    margin-top: 40px;
-  }
-  .g {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px dashed rgba(255,255,255,0.2);
-    background: rgba(255,255,255,0.02);
-    transition: all 0.2s;
-  }
-  .g:hover {
-    border-color: var(--warm);
-    background: rgba(212,163,115,0.05);
-  }
-  .g .gn {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    z-index: 2;
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--paper);
-    background: rgba(13,13,14,0.55);
-    padding: 6px 10px;
-    border-radius: 999px;
-  }
-  .g img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  /* Each tile size in the 12-column grid */
-  .g-1 { grid-column: span 7; grid-row: span 2; }
-  .g-2 { grid-column: span 5; }
-  .g-3 { grid-column: span 5; }
-  .g-4 { grid-column: span 4; }
-  .g-5 { grid-column: span 4; }
-  .g-6 { grid-column: span 4; }
-  .g-7 { grid-column: span 6; }
-  .g-8 { grid-column: span 6; }
-
-
-  /* ============================================================
-     [14] CONTACT
-     ============================================================ */
-  .contact { border-top: 1px solid var(--line); }
-  .contact-inner {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 60px;
-    align-items: start;
-  }
-  .contact h2 {
-    font-family: var(--serif);
-    font-size: clamp(40px, 6vw, 80px);
-    line-height: 1;
-    color: var(--ink);
-    font-weight: 400;
-    margin-bottom: 24px;
-    letter-spacing: -0.02em;
-  }
-  .contact h2 em { color: var(--warm-2); font-style: italic; }
-  .contact p.lede {
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--text-2);
-    margin-bottom: 32px;
-  }
-  .contact-info {
-    border: 1px solid var(--line-2);
-    border-radius: 12px;
-    padding: 24px;
-  }
-  .ci {
-    display: grid;
-    grid-template-columns: 100px 1fr;
-    gap: 16px;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--line);
-    font-size: 14.5px;
-  }
-  .ci:last-child { border-bottom: none; }
-  .ci .lbl {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-3);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding-top: 2px;
-  }
-  .ci .val { color: var(--ink); }
-  .ci .val em { color: var(--warm-2); font-style: italic; }
-  .ci .val a {
-    border-bottom: 1px solid var(--line-2);
-    transition: border-color 0.2s;
-  }
-  .ci .val a:hover { border-color: var(--warm-2); }
-
-  /* The dark form card */
-  .cform {
-    background: var(--bg);
-    color: var(--paper);
-    border-radius: 12px;
-    padding: 32px;
-  }
-  .cform-title {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-3);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 24px;
-  }
-  .frow { margin-bottom: 18px; }
-  .frow label {
-    display: block;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--text-3);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 8px;
-  }
-  .frow input,
-  .frow select,
-  .frow textarea {
-    width: 100%;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-    padding: 8px 0;
-    color: var(--paper);
-    font-family: var(--sans);
-    font-size: 15px;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .frow input:focus,
-  .frow select:focus,
-  .frow textarea:focus { border-color: var(--warm); }
-  .frow textarea { resize: vertical; min-height: 80px; }
-  .frow select option { background: var(--bg); }
-  .fsubmit {
-    width: 100%;
-    background: var(--warm);
-    color: var(--bg);
-    border: none;
-    padding: 14px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 8px;
-  }
-  .fsubmit:hover { background: var(--paper); transform: translateY(-1px); }
-
-
-  /* ============================================================
-     [15] FOOTER
-     ============================================================ */
-  footer {
-    border-top: 1px solid var(--line);
-    padding: 40px 0 60px;
-    margin-top: 80px;
-  }
-  .foot-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  .foot-left {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--text-3);
-  }
-  .foot-left em { color: var(--ink); font-style: normal; font-weight: 500; }
-  .foot-right {
-    display: flex;
-    gap: 20px;
-    font-size: 14px;
-  }
-  .foot-right a {
-    color: var(--text-2);
-    transition: color 0.2s;
-  }
-  .foot-right a:hover { color: var(--ink); }
-  .foot-sig {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 15px;
-    color: var(--warm-2);
-    margin-top: 16px;
-  }
-
-
-  /* ============================================================
-     [16] RESPONSIVE — tablet and mobile
-     ============================================================ */
-  @media (max-width: 900px) {
-    .about-grid, .apex-born .born-body, .contact-inner {
-      grid-template-columns: 1fr;
-      gap: 40px;
+  <link rel="stylesheet" href="/assets/css/wealth.css" />
+  <script>
+    if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('w-anim');
     }
-    .feat-grid, .qgrid, .phases, .wins-grid {
-      grid-template-columns: 1fr;
+  </script>
+  <!-- [PENDING-CLIENT-INPUT]: Add "image" URL to Person JSON-LD once a verified portrait photograph of Ochen Joshua is supplied, and expand "sameAs" once verified LinkedIn / Instagram / X URLs are provided. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://ochenjoshua.netlify.app/#person",
+      "name": "Ochen Joshua",
+      "alternateName": [
+        "Wealth",
+        "Joshua Ochen"
+      ],
+      "nationality": "Ugandan",
+      "jobTitle": [
+        "Entrepreneur",
+        "Software Engineer",
+        "Technology Innovator",
+        "DJ"
+      ],
+      "description": "Ugandan entrepreneur, software engineer, technology innovator, and DJ.",
+      "url": "https://ochenjoshua.netlify.app/",
+      "email": "mailto:ochenjoshua5@gmail.com",
+      "homeLocation": {
+        "@type": "Place",
+        "name": "Kampala, Uganda"
+      },
+      "knowsAbout": [
+        "Software Engineering",
+        "Business Automation",
+        "Web Application Architecture",
+        "Kotlin Android Development",
+        "Python Scripting",
+        "DJing and Audio Engineering"
+      ],
+      "sameAs": [
+        "https://github.com/ochenjoshua5-jpg"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ochenjoshua.netlify.app/#website",
+      "name": "Wealth — Ochen Joshua",
+      "alternateName": "Wealth Official Digital Profile",
+      "url": "https://ochenjoshua.netlify.app/",
+      "publisher": {
+        "@id": "https://ochenjoshua.netlify.app/#person"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ochenjoshua.netlify.app/#webpage",
+      "url": "https://ochenjoshua.netlify.app/",
+      "name": "Wealth | Ochen Joshua — Ugandan Entrepreneur & Software Engineer",
+      "description": "Wealth (Ochen Joshua) is a Ugandan entrepreneur, software engineer, technology innovator, and DJ building products, businesses, and a global personal brand from Uganda.",
+      "isPartOf": {
+        "@id": "https://ochenjoshua.netlify.app/#website"
+      },
+      "about": {
+        "@id": "https://ochenjoshua.netlify.app/#person"
+      },
+      "inLanguage": "en"
     }
-    .journey, .features, .quotes, .gallery {
-      padding: 40px 24px;
-    }
-    .t-item {
-      grid-template-columns: 1fr;
-      gap: 8px;
-    }
-    .g-1, .g-2, .g-3, .g-4, .g-5, .g-6, .g-7, .g-8 {
-      grid-column: span 1;
-      grid-row: span 1;
-    }
-    .g-1 { grid-row: span 2; }
-    .log-row { grid-template-columns: 1fr; gap: 4px; }
-    .log-row .t { text-align: left; }
-  }
-
-  @media (max-width: 600px) {
-    section { padding: 60px 0; }
-    .topbar nav { display: none; }
-    .hero { padding: 50px 0 40px; }
-    .about-side { padding: 24px; }
-    .about-side::before { display: none; }
-    .journey, .features, .quotes, .gallery { border-radius: 12px; }
-  }
-  /* ============================================================
-     [MUSIC PLAYER] Topbar music control styles
-     ============================================================ */
-  .music-control {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-left: 12px;
-  }
-  .music-button {
-    --size: 44px;
-    width: var(--size);
-    height: var(--size);
-    display: inline-grid;
-    place-items: center;
-    background: linear-gradient(135deg, rgba(212,163,115,0.12), rgba(13,13,14,0.02));
-    border-radius: 12px;
-    border: 1px solid rgba(13,13,14,0.06);
-    box-shadow: 0 6px 18px rgba(13,13,14,0.06);
-    cursor: pointer;
-    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-  }
-  .music-button:active { transform: scale(0.98); }
-  .music-icon {
-    width: 20px; height: 20px;
-    display: block;
-    transition: transform 0.4s ease, opacity 0.25s ease;
-    transform-origin: center;
-    color: var(--ink);
-  }
-  .music-button.playing {
-    animation: float 3s ease-in-out infinite;
-    background: linear-gradient(135deg, rgba(212,163,115,0.18), rgba(212,163,115,0.04));
-    border-color: rgba(212,163,115,0.25);
-  }
-  @keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }
-    100% { transform: translateY(0); }
-  }
-  .music-button.playing .music-icon { transform: rotate(20deg) scale(1.03); }
-  .music-icon .icon-pause { opacity: 0; transform: scale(0.9); transition: opacity 0.28s ease, transform 0.28s ease; }
-  .music-icon .icon-speaker { opacity: 1; transition: opacity 0.28s ease, transform 0.28s ease; }
-  .music-button.playing .icon-pause { opacity: 1; transform: scale(1); }
-  .music-button.playing .icon-speaker { opacity: 0; transform: scale(0.88) rotate(-6deg); }
-  /* hide the native audio element visually (we control playback via the button) */
-  #bg-music { display: none !important; }
-
-  /* Volume slider styling */
-  .volume-wrapper {
-    width: 130px;
-    display: flex;
-    align-items: center;
-    opacity: 0;
-    transform: translateY(-4px);
-    transition: opacity 0.18s ease, transform 0.18s ease;
-  }
-  .music-control:hover .volume-wrapper,
-  .music-control:focus-within .volume-wrapper {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .volume-slider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 8px;
-    background: linear-gradient(90deg, var(--warm) 0%, var(--warm) 100%);
-    border-radius: 999px;
-    box-shadow: inset 0 0 0 1px rgba(13,13,14,0.04);
-    outline: none;
-    opacity: 0.95;
-  }
-  .volume-slider::-webkit-slider-runnable-track { height: 8px; border-radius: 999px; }
-  .volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 14px; height: 14px; border-radius: 50%; background: var(--paper); border: 2px solid var(--warm-2);
-    margin-top: -3px; box-shadow: 0 2px 6px rgba(13,13,14,0.12);
-  }
-  .volume-slider::-moz-range-track { height: 8px; border-radius: 999px; }
-  .volume-slider::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--paper); border: 2px solid var(--warm-2); }
-  /* On touch devices, show slider by default (no hover) */
-  @media (hover: none) {
-    .volume-wrapper { opacity: 1; transform: translateY(0); width: 100px; }
-    .music-control { gap: 8px; }
-  }
-  @media (max-width: 420px) {
-    .volume-wrapper { width: 86px; }
-  }
-  /* hide the native audio element visually (we control playback via the button) */
-  #bg-music { display: none !important; }
-  .music-indicator {
-    width: 10px; height: 10px;
-    background: linear-gradient(180deg, #fff, var(--warm));
-    border-radius: 999px;
-    box-shadow: 0 0 8px rgba(212,163,115,0.6);
-    opacity: 0; transform: scale(0.6);
-    transition: opacity 0.24s ease, transform 0.24s ease;
-  }
-  .music-button.playing + .music-indicator { opacity: 1; transform: scale(1); }
-  /* Mobile sizing */
-  @media (max-width: 600px) {
-    .music-control { margin-left: 6px; }
-    .music-button { --size: 40px; }
-  }
-</style>
+  ]
+}
+  </script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to primary content</a>
 
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand-mark" aria-label="Wealth — Ochen Joshua Home">
+        <span class="brand-monogram"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <path d="M10 17H18.2L24.8 44L31.6 20H35.4L42.2 44L48.8 17H57L45.4 51H39.6L33.5 30.2L27.4 51H21.6L10 17Z" fill="#C9A869"/>
+  <circle cx="33.5" cy="9.5" r="1.8" fill="#C9A869"/>
+</svg></span>
+        <span class="brand-text-group">
+          <span class="brand-wordmark">WEALTH</span>
+          <span class="brand-subname">Ochen Joshua</span>
+        </span>
+      </a>
 
-<!-- ============================================================
-     [3] TOP BAR / NAV
-     ============================================================ -->
-<div class="topbar">
-  <div class="container topbar-inner">
-    <div class="me">
-      <span class="me-dot"></span>
-      <span>Ochen Joshua</span>
-      <span class="me-sub">// building apex</span>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="/" aria-current="page">Home</a>
+          <a href="/about/">About</a>
+          <a href="/work/">Work</a>
+          <a href="/engineering/">Engineering</a>
+          <a href="/music/">Music</a>
+          <a href="/contact/">Contact</a>
+      </nav>
+
+      <div class="header-controls">
+        <div class="kampala-telemetry tabular" aria-label="Current location and East Africa Time">
+          <span class="status-beacon" aria-hidden="true"></span>
+          <span data-kampala-time>KLA · EAT</span>
+        </div>
+
+        <button
+          type="button"
+          class="sound-pill"
+          data-audio-toggle
+          aria-pressed="false"
+          aria-label="Toggle studio session audio"
+        >
+          <span class="eq-bars" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </span>
+          <span class="sound-label-text" data-audio-label data-label-paused="Sound" data-label-playing="Playing">Sound</span>
+        </button>
+
+        <button
+          type="button"
+          id="menu-toggle"
+          class="menu-toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-drawer"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F5F1" stroke-width="1.6" aria-hidden="true">
+            <line x1="3" y1="7" x2="21" y2="7" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="17" x2="21" y2="17" />
+          </svg>
+        </button>
+      </div>
     </div>
-    <nav>
-      <a href="#about">about</a>
-      <a href="#journey">journey</a>
-      <a href="#apex">apex</a>
-      <a href="#work">what i built</a>
-      <a href="#contact" class="topbar-cta">say hi</a>
+  </header>
+
+  <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Site navigation">
+    <div class="drawer-top">
+      <span class="brand-wordmark">WEALTH // NAVIGATION</span>
+      <button type="button" id="drawer-close" class="drawer-close" aria-label="Close navigation menu">&times;</button>
+    </div>
+    <nav class="drawer-links" aria-label="Mobile navigation">
+      <a href="/" aria-current="page"><span>01</span> Home</a>
+        <a href="/about/"><span>02</span> About</a>
+        <a href="/work/"><span>03</span> Work</a>
+        <a href="/engineering/"><span>04</span> Engineering</a>
+        <a href="/music/"><span>05</span> Music</a>
+        <a href="/contact/"><span>06</span> Contact</a>
     </nav>
-    <!-- Music player control (click to play/pause) -->
-    <div class="music-control">
-      <button id="music-toggle" class="music-button" aria-pressed="false" aria-label="Play background music">
-        <svg viewBox="0 0 24 24" class="music-icon" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.4">
-          <g class="icon-speaker">
-            <path d="M5 15V9a1 1 0 0 1 1-1h3l4-3v14l-4-3H6a1 1 0 0 1-1-1z" fill="currentColor" />
-            <path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-          </g>
-          <g class="icon-pause" style="opacity:0; transform-origin:center;">
-            <rect x="6" y="6" width="3" height="12" fill="currentColor" />
-            <rect x="13" y="6" width="3" height="12" fill="currentColor" />
-          </g>
-        </svg>
-      </button>
-      <div class="volume-wrapper" aria-hidden="true">
-        <label for="music-volume" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;">Volume</label>
-        <input id="music-volume" class="volume-slider" type="range" min="0" max="100" value="55" aria-label="Volume" />
-      </div>
-      <div class="music-indicator" aria-hidden="true"></div>
-      <audio id="bg-music" src="public/music.mp3" preload="metadata" controls="false"></audio>
+    <div class="drawer-footer">
+      BUILD. OWN. INNOVATE. BECOME WEALTH. &middot; KAMPALA, UGANDA
     </div>
   </div>
-</div>
 
-
-<!-- ============================================================
-     [4] HERO
-     ============================================================ -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-meta">
-      <span>kampala, uganda</span>
-      <span class="dot"></span>
-      <span id="today"></span>
-      <span class="dot"></span>
-      <span>19 yrs old</span>
-      <span class="dot"></span>
-      <span style="color: var(--green);">● available for work</span>
-    </div>
-
-    <h1>
-      hi, i'm <em>ochen.</em><br/>
-      i <span class="underline">build</span> things<br/>
-      that <span class="strike">work.</span>
-    </h1>
-
-    <p class="hero-sub">
-      i'm a 19 year old founder from kampala. i teach myself to code, i build <strong>ai systems and automation</strong> for real businesses, and right now i'm building <strong>apex automation solutions</strong> — the thing i always wanted to build. i'm proud of it. you're reading about it.
-    </p>
-
-    <div class="hero-cta">
-      <a href="#apex" class="btn btn-primary">see what i'm building →</a>
-      <a href="#contact" class="btn btn-ghost">talk to me</a>
-    </div>
-
-    <div class="hero-tags">
-      <span class="tag"><span class="key">stack:</span> python · openai · n8n · whatsapp api</span>
-      <span class="tag"><span class="key">building:</span> apex automation solutions</span>
-      <span class="tag"><span class="key">based:</span> uganda 🇺🇬</span>
-      <span class="tag"><span class="key">vibes:</span> focused</span>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     [5] STICKY NOTE — first personal note
-     ============================================================ -->
-<div class="container">
-  <div class="note">
-    <div class="note-label">// a small note from me</div>
-    <p>this whole site is hand-coded by me. no templates, no ai builder, no drag-and-drop. just me, vscode, and a lot of coffee. if it feels personal, that's because it is.</p>
-  </div>
-</div>
-
-
-<!-- ============================================================
-     [6] ABOUT
-     ============================================================ -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="sec-head">
-      <span class="sec-num">01</span>
-      <h2 class="sec-title">a little bit <em>about me.</em></h2>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-text">
-        <p>my name is <strong>ochen joshua</strong>. i'm 19, i'm a senior physics student at smack in kampala, and i've been coding since i was 16. i started because i was broke and i wanted to build something that made money without me having to beg anyone for a job. that hasn't changed. the ambition got bigger. the "why" got cleaner.</p>
-        <p>before apex, i built tools. lots of them. tools for <em>schools</em> to manage students. tools for <em>clinics</em> to track patients. tools for <em>shops</em> to handle inventory. none of them were fancy. all of them worked. and they taught me something i couldn't learn in a classroom: <strong>if you can build something that solves a real problem, you will never be broke again.</strong></p>
-        <p>i'm the kind of person who stays up at 2am fixing one bug because i promised myself the system would work by morning. i'm the kind of person who reads documentation for fun. i'm the kind of person who, when something doesn't work, doesn't blame it — <em>rebuilds it.</em></p>
-        <p>i don't come from money. i don't come from connections. i come from hunger, a laptop, and a clear picture of who i'm going to be. and i'm proud of that. genuinely proud.</p>
-      </div>
-
-      <aside class="about-side">
-        <div class="profile-image-wrapper">
-          <img src="public/profile.jpg" alt="Ochen Joshua profile picture" class="profile-image" />
-        </div>
-        <div class="field">
-          <span class="k">name</span>
-          <span class="v">Ochen Joshua</span>
-        </div>
-        <div class="field">
-          <span class="k">age</span>
-          <span class="v">19</span>
-        </div>
-        <div class="field">
-          <span class="k">school</span>
-          <span class="v">SMACK, Kampala</span>
-        </div>
-        <div class="field">
-          <span class="k">building</span>
-          <span class="v">Apex Automation <em>Solutions</em></span>
-        </div>
-        <div class="field">
-          <span class="k">stacks</span>
-          <span class="v">Python · AI · APIs · Automation</span>
-        </div>
-        <div class="field">
-          <span class="k">superpower</span>
-          <span class="v">i just figure it out</span>
-        </div>
-        <div class="field">
-          <span class="k">status</span>
-          <span class="v" style="color: var(--green);">● heads down. shipping.</span>
-        </div>
-      </aside>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     [7] JOURNEY / TIMELINE
-     ============================================================ -->
-<div class="container">
-  <div class="journey" id="journey">
-    <div class="sec-head">
-      <span class="sec-num">02</span>
-      <h2 class="sec-title">how i got <em>here.</em></h2>
-    </div>
-
-    <div class="timeline">
-      <div class="t-item">
-        <div class="t-when">~16 yrs old</div>
-        <div class="t-what">
-          <h3>wrote my <em>first</em> line of code.</h3>
-          <p>didn't even know what i was doing. just knew i wanted to make something. started with python because a youtube video said it was "easy." it wasn't. i loved it.</p>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-when">~17</div>
-        <div class="t-what">
-          <h3>started building things for <em>real people.</em></h3>
-          <p>built a student management system for a school. built an inventory tool for a small shop. built a simple clinic tracker. none of it was big. all of it was real. and i got paid for it.</p>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-when">~18</div>
-        <div class="t-what">
-          <h3>figured out i was actually <em>good</em> at this.</h3>
-          <p>finished three more projects. each one faster, cleaner, more useful than the last. somewhere in there i stopped seeing myself as "a student who codes" and started seeing myself as <em>a builder.</em></p>
-        </div>
-      </div>
-
-      <div class="t-item">
-        <div class="t-when">~19 / now</div>
-        <div class="t-what">
-          <h3>started <em>apex.</em></h3>
-          <p>ai automation. whatsapp bots. lead systems. workflow tools. the stuff i was always building, but for real businesses at a higher level. apex is the company. i'm the founder. and i'm proud of every line.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ============================================================
-     [8] WHY I STARTED APEX
-     ============================================================ -->
-<section class="apex-born" id="apex">
-  <div class="container">
-    <div class="sec-head">
-      <span class="sec-num">03</span>
-      <h2 class="sec-title">why i started <em>apex.</em></h2>
-    </div>
-
-    <p class="born-statement">
-      apex started because i kept seeing the same thing — business owners i knew working <em>twenty hours a day</em> doing work a smart system could do in twenty minutes. and i knew i could build that system.
-    </p>
-
-    <div class="born-body">
-      <p>i didn't start apex because of some pitch deck or a trend. i started it because i've watched people in my community <strong>burn out</strong> doing manual work that shouldn't be manual. replying to the same whatsapp messages. chasing the same leads. copying the same data into the same spreadsheets. day after day.</p>
-      <p>apex is me <em>saying no</em> to that. it's the thing i always wanted to build — ai systems that handle the boring stuff so real people can focus on the parts of their business that actually need a human.</p>
-      <p>every product inside apex is something i personally wish existed when i was helping those shops and clinics. customer support bots. lead follow-up. workflow automation. <strong>tools that buy people back their time.</strong></p>
-      <p>apex is a 19 year old's answer to a problem that's been here forever. and it's <em>working.</em></p>
-    </div>
-  </div>
-</section>
-
-<!-- The middle sticky note -->
-<div class="container">
-  <div class="note">
-    <div class="note-label">// what apex actually does, in one line</div>
-    <p>we build ai tools and automation that handle the work your business shouldn't need a human to do. you focus on the real stuff. we handle the rest.</p>
-  </div>
-</div>
-
-
-<!-- ============================================================
-     [9] WHAT I'VE BUILT — 6 product capability cards
-     ============================================================ -->
-<div class="container" id="work">
-  <div class="features">
-    <div class="sec-head">
-      <span class="sec-num">04</span>
-      <h2 class="sec-title">what i've <em>built.</em></h2>
-    </div>
-
-    <div class="feat-grid">
-      <div class="feat">
-        <div class="feat-icon">01</div>
-        <h3>ai customer <em>support</em></h3>
-        <p>chatbots that actually answer questions like a real person would. trained on your business, your tone, your way. works on whatsapp, on websites, on instagram. doesn't sleep.</p>
-        <div class="feat-meta">built with: openai · whatsapp api · python</div>
-      </div>
-
-      <div class="feat">
-        <div class="feat-icon">02</div>
-        <h3>whatsapp <em>automation</em></h3>
-        <p>full whatsapp systems. from first message to closed deal. booking, follow-ups, reminders, re-engagement. i built it for a business owner who was replying to 200+ messages a day by hand. she doesn't anymore.</p>
-        <div class="feat-meta">live demo available</div>
-      </div>
-
-      <div class="feat">
-        <div class="feat-icon">03</div>
-        <h3>lead capture + <em>follow-up</em></h3>
-        <p>the moment someone shows interest, the system grabs them. qualifies them. follows up. books them in. nothing falls through the cracks because nothing <em>can</em> fall through the cracks.</p>
-        <div class="feat-meta">crm sync · smart routing</div>
-      </div>
-
-      <div class="feat">
-        <div class="feat-icon">04</div>
-        <h3>workflow <em>automation</em></h3>
-        <p>the boring stuff. the repetitive stuff. the stuff that eats your day. i find it, i automate it, i delete it from your to-do list forever. most of my clients don't even realize how much time they were wasting until they see it gone.</p>
-        <div class="feat-meta">n8n · python · zapier</div>
-      </div>
-
-      <div class="feat">
-        <div class="feat-icon">05</div>
-        <h3>connect your <em>tools</em></h3>
-        <p>your crm, your whatsapp, your google sheets, your email, your payment system — all talking to each other like they're supposed to. i glue them together so you stop being the glue.</p>
-        <div class="feat-meta">api · webhooks · custom</div>
-      </div>
-
-      <div class="feat">
-        <div class="feat-icon">06</div>
-        <h3>custom <em>ai assistants</em></h3>
-        <p>your own private ai. trained on your business. answers questions in your voice. handles the repetitive thinking work. like hiring a really fast intern who never asks for a raise.</p>
-        <div class="feat-meta">llm · rag · custom prompts</div>
-      </div>
-    </div>
-
-    <div class="doctrine">
-      <p>"we don't sell software. we <strong>give people their time back.</strong>"</p>
-    </div>
-  </div>
-</div>
-
-
-<!-- ============================================================
-     [10] WINS / PROOF
-     ============================================================ -->
-<section class="wins-section">
-  <div class="container">
-    <div class="sec-head">
-      <span class="sec-num">05</span>
-      <h2 class="sec-title">where i am <em>right now.</em></h2>
-    </div>
-
-    <div class="wins-grid">
-      <div class="win">
-        <div class="w-num">01</div>
-        <div class="w-lbl">founded</div>
-        <p>apex automation solutions, officially</p>
-      </div>
-      <div class="win">
-        <div class="w-num">3+</div>
-        <div class="w-lbl">ai systems built</div>
-        <p>working prototypes, tested and demo-ready</p>
-      </div>
-      <div class="win">
-        <div class="w-num">12+</div>
-        <div class="w-lbl">projects shipped</div>
-        <p>across schools, clinics, and small businesses</p>
-      </div>
-      <div class="win">
-        <div class="w-num">∞</div>
-        <div class="w-lbl">excuses given</div>
-        <p>zero. none. ever.</p>
-      </div>
-    </div>
-
-    <div class="log">
-      <div class="log-row">
-        <div class="n">001</div>
-        <div class="h">apex <em>founded</em></div>
-        <div class="d">the company is real. domain, brand, products, vision — all locked in.</div>
-        <div class="t">founded</div>
-      </div>
-      <div class="log-row">
-        <div class="n">002</div>
-        <div class="h">first <em>ai chatbot</em> live</div>
-        <div class="d">a working customer support ai. tested. demo-ready. proud of this one.</div>
-        <div class="t">shipped</div>
-      </div>
-      <div class="log-row">
-        <div class="n">003</div>
-        <div class="h">whatsapp <em>system</em> built</div>
-        <div class="d">end-to-end whatsapp automation — book, follow up, close. running in test.</div>
-        <div class="t">shipped</div>
-      </div>
-      <div class="log-row">
-        <div class="n">004</div>
-        <div class="h">lead <em>engine</em> working</div>
-        <div class="d">capture → qualify → follow-up. all automated. all mine.</div>
-        <div class="t">shipped</div>
-      </div>
-      <div class="log-row">
-        <div class="n">005</div>
-        <div class="h">past projects <em>finished</em></div>
-        <div class="d">school tool, clinic tool, shop tool — all delivered. all paid for. all learnings.</div>
-        <div class="t">done</div>
-      </div>
-      <div class="log-row">
-        <div class="n">006</div>
-        <div class="h">pilot <em>conversations</em> starting</div>
-        <div class="d">talking to real business owners. showing them what i built. they're interested.</div>
-        <div class="t">now</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Third sticky note -->
-<div class="container">
-  <div class="note">
-    <div class="note-label">// honest update</div>
-    <p>i'm not running a unicorn. i'm running a real company, built by a 19 year old, with working products. and every single day it gets a little bigger.</p>
-  </div>
-</div>
-
-
-<!-- ============================================================
-     [11] QUOTES
-     ============================================================ -->
-<div class="container">
-  <div class="quotes">
-    <p class="big">"i'm 19, i don't have a degree, and i'm <strong>already building</strong> the thing most people wait their whole careers to start."</p>
-    <div class="by">— me, on a normal tuesday</div>
-
-    <div class="qgrid">
-      <div class="qcell">
-        <div class="qn">i.</div>
-        <p class="qt">"i don't need anyone's permission. i never did. <strong>i just need a laptop and a problem.</strong>"</p>
-      </div>
-      <div class="qcell">
-        <div class="qn">ii.</div>
-        <p class="qt">"pressure is just fuel. the more you give me, the <strong>further i go.</strong>"</p>
-      </div>
-      <div class="qcell">
-        <div class="qn">iii.</div>
-        <p class="qt">"i build it. <strong>it works.</strong> then i build the next one."</p>
-      </div>
-      <div class="qcell">
-        <div class="qn">iv.</div>
-        <p class="qt">"the difference between me and everyone else? <strong>i actually do it.</strong>"</p>
-      </div>
-      <div class="qcell">
-        <div class="qn">v.</div>
-        <p class="qt">"i'm not waiting to be ready. <strong>i'm building my way into ready.</strong>"</p>
-      </div>
-      <div class="qcell">
-        <div class="qn">vi.</div>
-        <p class="qt">"a 19 year old with focus is more dangerous than a 40 year old with a plan. <strong>trust me on that.</strong>"</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ============================================================
-     [12] FUTURE / WHERE I'M GOING
-     ============================================================ -->
-<section class="future">
-  <div class="container">
-    <div class="sec-head">
-      <span class="sec-num">06</span>
-      <h2 class="sec-title">where i'm <em>going.</em></h2>
-    </div>
-
-    <p class="future-statement">
-      apex is going to be the ai backbone of small and medium businesses across this country. and then this continent. and then beyond. and i'm going to be the one who <em>built it.</em>
-    </p>
-
-    <div class="phases">
-      <div class="phase">
-        <div class="when">now → next</div>
-        <h4>make the products <em>unbeatable.</em></h4>
-        <p>refine every system until they're the cleanest, fastest, most useful automation tools in the market. no shortcuts. just quality.</p>
-      </div>
-      <div class="phase">
-        <div class="when">next → soon</div>
-        <h4>get them in <em>real businesses.</em></h4>
-        <p>more pilots. more clients. more proof. every business that uses apex becomes a story i get to tell.</p>
-      </div>
-      <div class="phase">
-        <div class="when">soon → forever</div>
-        <h4>build the <em>empire.</em></h4>
-        <p>apex becomes the standard. my name becomes the standard. and i get to look back and say — yeah, i built that. from a laptop. at 19.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     [13] GALLERY
-     ============================================================ -->
-<div class="container">
-  <div class="gallery">
-    <div class="sec-head">
-      <span class="sec-num">07</span>
-      <h2 class="sec-title">the <em>proof.</em></h2>
-    </div>
-
-    <div class="ggrid">
-      <div class="g g-1">
-        <div class="gn">// 01 · me</div>
-        <img src="public/gallery-1.jpg" alt="Photo of Ochen building at his desk" />
-      </div>
-      <div class="g g-2">
-        <div class="gn">// 02 · apex ui</div>
-        <img src="public/gallery-2.jpg" alt="Screenshot of Apex automation dashboard" />
-      </div>
-      <div class="g g-3">
-        <div class="gn">// 03 · the laptop</div>
-        <img src="public/gallery-3.jpg" alt="Laptop used for building projects" />
-      </div>
-      <div class="g g-4">
-        <div class="gn">// 04 · whatsapp bot</div>
-        <img src="public/gallery-4.jpg" alt="WhatsApp bot automation in action" />
-      </div>
-      <div class="g g-5">
-        <div class="gn">// 05 · my code</div>
-        <img src="public/gallery-5.jpg" alt="VSCode workspace showing code" />
-      </div>
-      <div class="g g-6">
-        <div class="gn">// 06 · a client</div>
-        <img src="public/gallery-6.jpg" alt="Client or testimonial shot" />
-      </div>
-      <div class="g g-7">
-        <div class="gn">// 07 · the idea wall</div>
-        <img src="public/gallery-7.jpg" alt="Notebook and idea wall" />
-      </div>
-      <div class="g g-8">
-        <div class="gn">// 08 · the future</div>
-        <img src="public/gallery-8.jpg" alt="Vision for the future" />
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ============================================================
-     [14] CONTACT
-     ============================================================ -->
-<section class="contact" id="contact">
-  <div class="container">
-    <div class="contact-inner">
-      <div>
-        <div class="sec-head" style="margin-bottom: 24px;">
-          <span class="sec-num">08</span>
-          <h2 class="sec-title">talk to <em>me.</em></h2>
-        </div>
-        <h2 style="font-family: var(--serif); font-size: clamp(36px, 5vw, 64px); line-height: 1.05; font-weight: 400; color: var(--ink); margin-bottom: 20px; letter-spacing: -0.02em;">want to work together? <em style="color: var(--warm-2);">let's chat.</em></h2>
-        <p class="lede">i read every message myself. if you're a business owner who needs automation, an investor who sees what i'm building, or a fellow builder — say hi. i promise i'll write back.</p>
-
-        <div class="contact-info">
-          <div class="ci">
-            <span class="lbl">email</span>
-            <span class="val"><a href="/cdn-cgi/l/email-protection#107f7378757e50716075687165647f7d7164797f7e3e637f7c6564797f7e63"><span class="__cf_email__" data-cfemail="1f707c777a715f7e6f7a677e6a6b70727e6b767071316c70736a6b7670716c">[email&#160;protected]</span></a></span>
+  <main id="main-content">
+    
+    <!-- HERO -->
+    <section class="hero-section surface-obsidian">
+      <div class="container hero-grid">
+        <div data-reveal>
+          <span class="eyebrow">UGANDAN BUILDER. GLOBAL AMBITION.</span>
+          <h1 class="display-h1">
+            <span class="line">I BUILD TECHNOLOGY.</span>
+            <span class="line">I BUILD BUSINESSES.</span>
+            <span class="line accent-italic">I BUILD WEALTH.</span>
+          </h1>
+          <p class="hero-subhead">
+            I’m <strong>Ochen Joshua</strong>, known as <strong>Wealth</strong> — a Ugandan entrepreneur, software engineer, technology innovator, and DJ focused on building useful products and businesses with the potential to scale beyond borders.
+          </p>
+          <div class="btn-row">
+            <a href="/work/" class="btn btn-primary">EXPLORE MY WORK &rarr;</a>
+            <a href="/contact/" class="btn btn-secondary">LET'S BUILD SOMETHING</a>
           </div>
-          <div class="ci">
-            <span class="lbl">based in</span>
-            <span class="val">kampala, <em>uganda</em></span>
+        </div>
+
+        <aside class="crest-dossier" data-parallax-card aria-label="Founder identity summary" data-reveal>
+          <div class="crest-top-meta">
+            <span>DOSSIER // 001</span>
+            <span class="tabular">00°18′49″N 32°34′52″E</span>
           </div>
-          <div class="ci">
-            <span class="lbl">reply time</span>
-            <span class="val">usually <em>within a day</em></span>
+          <!-- [PENDING-CLIENT-INPUT]: Replace monogram crest stage with verified portrait photograph of Ochen Joshua once supplied -->
+          <div class="crest-seal-stage">
+            <div class="crest-emblem"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <path d="M10 17H18.2L24.8 44L31.6 20H35.4L42.2 44L48.8 17H57L45.4 51H39.6L33.5 30.2L27.4 51H21.6L10 17Z" fill="#C9A869"/>
+  <circle cx="33.5" cy="9.5" r="1.8" fill="#C9A869"/>
+</svg></div>
+            <div class="crest-name">Wealth</div>
+            <div class="crest-legal">Ochen Joshua &middot; Uganda</div>
           </div>
-          <div class="ci">
-            <span class="lbl">best for</span>
-            <span class="val">automation, ai, ideas, building together</span>
+          <div class="crest-specs">
+            <div class="crest-spec-row">
+              <span class="crest-spec-key">Roles</span>
+              <span class="crest-spec-val">Entrepreneur &middot; Engineer &middot; DJ</span>
+            </div>
+            <div class="crest-spec-row">
+              <span class="crest-spec-key">Venture Focus</span>
+              <span class="crest-spec-val">Apex Automation Solutions</span>
+            </div>
+            <div class="crest-spec-row">
+              <span class="crest-spec-key">Core Stack</span>
+              <span class="crest-spec-val">Python &middot; Web &middot; Kotlin</span>
+            </div>
+            <div class="crest-spec-row">
+              <span class="crest-spec-key">Base</span>
+              <span class="crest-spec-val">Kampala, Uganda</span>
+            </div>
+          </div>
+          <div class="crest-audio-bar">
+            <span class="project-index tabular">STUDIO SESSION // 03:31</span>
+            <button type="button" class="btn btn-subtle" data-audio-toggle aria-pressed="false">
+              <span data-audio-label data-label-paused="Play Session Cut" data-label-playing="Pause Session Cut">Play Session Cut</span>
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- WORDMARK ANCHOR DIVIDER -->
+    <div class="wealth-divider">
+      <div class="container wealth-divider-inner tabular">
+        <span class="wealth-divider-anchor">WEALTH &mdash; OCHEN JOSHUA</span>
+        <span>01 VENTURES &middot; 02 SOFTWARE ARCHITECTURE &middot; 03 SOUND</span>
+        <span>BUILD. OWN. INNOVATE. BECOME WEALTH.</span>
+      </div>
+    </div>
+
+    <!-- VISION MANIFESTO (HIGH-CONTRAST WARM WHITE EDITORIAL SPREAD) -->
+    <section class="section surface-ivory" id="vision">
+      <div class="container">
+        <div class="vision-layout">
+          <div data-reveal>
+            <span class="eyebrow">01 // VISION &amp; PHILOSOPHY</span>
+            <h2 class="section-h2">THE VISION IS BIGGER THAN THE BEGINNING.</h2>
+            <p class="lead-copy">
+              I believe geography should not determine the scale of your ambition. From Uganda, I’m working toward a future built around technology, entrepreneurship, ownership, and creative independence.
+            </p>
+          </div>
+
+          <div class="vision-quote-block" data-reveal>
+            <blockquote class="vision-pullquote">
+              “I am not building for attention. I am building for ownership, impact, and the freedom to create.”
+            </blockquote>
+            <div class="vision-aspiration-box">
+              <div class="vision-aspiration-label">Long-Term Horizon &mdash; Stated Aspiration</div>
+              <p class="vision-aspiration-text">
+                The ambition: build extraordinary companies, create lasting value, and pursue billionaire-level success on my own terms.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="philosophy-strip" data-reveal>
+          <p>
+            Wealth is built by creating value, owning what you build, solving real problems, and thinking beyond geography.
+          </p>
+          <a href="/about/" class="btn btn-outline-dark">Read Full Founder Story &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS PREVIEW -->
+    <section class="section surface-obsidian" id="featured-work">
+      <div class="container">
+        <div class="section-header-row" data-reveal>
+          <div>
+            <span class="eyebrow">02 // SELECTED BUILDS</span>
+            <h2 class="section-h2">MORE THAN ONE IDEA. A LIFETIME OF BUILDING.</h2>
+            <p class="lead-copy">
+              Every project listed below reflects real code, active prototypes, or open-source systems built by Ochen Joshua — documented candidly with its current status and technical stack.
+            </p>
+          </div>
+          <a href="/work/" class="btn btn-secondary">All 6 Projects &amp; Filters &rarr;</a>
+        </div>
+
+        <div class="project-showcase-stack">
+          
+  <article class="project-plate" data-project-status="in-development" data-reveal>
+    <div class="project-media">
+      <picture>
+        <source srcset="/public/work-apex.webp" type="image/webp" />
+        <img
+          src="/public/work-apex.jpg"
+          alt="Apex Automation Solutions pipeline architecture showing WhatsApp and web intake feeding AI qualification triage and CRM dispatch sync"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+    </div>
+    <div class="project-body">
+      <div class="project-top-line">
+        <span class="project-index tabular">PROJECT // 01</span>
+        <span class="status-badge status-development">In Development</span>
+      </div>
+      <h3 class="project-title">Apex Automation Solutions</h3>
+      <p class="project-summary">Custom business automation venture founded in Kampala to replace repetitive manual customer replies, missed inquiries, and disconnected spreadsheets with structured software workflows.</p>
+      <div class="project-meta-list">
+        <div class="project-meta-row">
+          <span class="project-meta-key">Problem Solved</span>
+          <span class="project-meta-val">Small and medium business operators lose hours daily answering repetitive WhatsApp inquiries manually, dropping warm leads, and copying records across spreadsheets.</span>
+        </div>
+        <div class="project-meta-row">
+          <span class="project-meta-key">Target User</span>
+          <span class="project-meta-val">Founders, clinics, hospitality teams, property operators, and growing service businesses in Uganda and beyond.</span>
+        </div>
+        <div class="project-meta-row">
+          <span class="project-meta-key">Tech Stack</span>
+          <div class="tech-pills">
+            <span class="tech-pill">HTML5</span><span class="tech-pill">CSS3</span><span class="tech-pill">JavaScript</span><span class="tech-pill">Python</span><span class="tech-pill">WhatsApp API Workflows</span><span class="tech-pill">n8n / LLM Pipelines</span>
           </div>
         </div>
       </div>
-
-      <form class="cform" method="POST" action="https://formspree.io/f/your-form-id">
-        <div class="cform-title">// send a message</div>
-        <div class="frow">
-          <label>your name</label>
-          <input type="text" name="name" placeholder="what should i call you?" required>
-        </div>
-        <div class="frow">
-          <label>email</label>
-          <input type="email" name="email" placeholder="you@somewhere.com" required>
-        </div>
-        <div class="frow">
-          <label>what's this about?</label>
-          <select name="subject">
-            <option>i need an automation built</option>
-            <option>i want to invest / partner</option>
-            <option>i want to work with you</option>
-            <option>i'm just saying hi</option>
-            <option>other (tell me in the message)</option>
-          </select>
-        </div>
-        <div class="frow">
-          <label>your message</label>
-          <textarea name="message" placeholder="tell me what you're thinking. be real." required></textarea>
-        </div>
-        <div class="form-status" aria-live="polite" style="margin-bottom:14px;color:var(--text-2);"></div>
-        <button type="submit" class="fsubmit">send it →</button>
-      </form>
+      <div class="btn-row">
+        <a href="https://github.com/ochenjoshua5-jpg/apexautomationsolutions" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Inspect Repository &rarr;</a>
+      </div>
     </div>
-  </div>
-</section>
+  </article>
 
-
-<!-- ============================================================
-     [15] FOOTER
-     ============================================================ -->
-<footer>
-  <div class="container foot-inner">
-    <div class="foot-left">
-      made by <em>ochen joshua</em> · kampala, uganda · © <span id="yr"></span>
+  <article class="project-plate is-reversed" data-project-status="live" data-reveal>
+    <div class="project-media">
+      <picture>
+        <source srcset="/public/work-ojmusic.webp" type="image/webp" />
+        <img
+          src="/public/work-ojmusic.jpg"
+          alt="OJ MUSIC Android application screenshots showing the quick picks home screen, lossless FLAC full player interface, and synchronized lyrics screen"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
     </div>
-    <div class="foot-right">
-      <a href="/cdn-cgi/l/email-protection#aac5c9c2cfc4eacbdacfd2cbdfdec5c7cbdec3c5c484d9c5c6dfdec3c5c4d9">email</a>
-      <a href="#">github</a>
-      <a href="#">x</a>
-      <a href="#">linkedin</a>
+    <div class="project-body">
+      <div class="project-top-line">
+        <span class="project-index tabular">PROJECT // 02</span>
+        <span class="status-badge status-live">Live</span>
+      </div>
+      <h3 class="project-title">OJ MUSIC (Android Client &amp; Desktop Launcher)</h3>
+      <p class="project-summary">Open-source hybrid Android music client engineered across a modular 13-module Gradle codebase with lossless FLAC playback, synchronized lyrics, device-local AES-256-GCM credential encryption, and a custom C/Python desktop installer.</p>
+      <div class="project-meta-list">
+        <div class="project-meta-row">
+          <span class="project-meta-key">Problem Solved</span>
+          <span class="project-meta-val">Unifies streaming discovery and high-resolution local FLAC playback in an ad-free, zero-telemetry Android experience with automated desktop APK packaging and ADB installation.</span>
+        </div>
+        <div class="project-meta-row">
+          <span class="project-meta-key">Target User</span>
+          <span class="project-meta-val">Audiophiles, Android power users, and music listeners who value lossless sound and zero tracking.</span>
+        </div>
+        <div class="project-meta-row">
+          <span class="project-meta-key">Tech Stack</span>
+          <div class="tech-pills">
+            <span class="tech-pill">Kotlin</span><span class="tech-pill">Jetpack Compose</span><span class="tech-pill">Android SDK</span><span class="tech-pill">Gradle 13-Module</span><span class="tech-pill">C</span><span class="tech-pill">Python</span>
+          </div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <a href="https://github.com/ochenjoshua5-jpg/joshua" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Inspect Repository &rarr;</a>
+      </div>
     </div>
-    <div class="foot-sig" style="width: 100%;">built by hand. one line at a time.</div>
-  </div>
-</footer>
+  </article>
 
+  <article class="project-plate" data-project-status="prototype" data-reveal>
+    <div class="project-media">
+      <picture>
+        <source srcset="/public/work-downloader.webp" type="image/webp" />
+        <img
+          src="/public/work-downloader.jpg"
+          alt="OJ Music Downloader Progressive Web App technical overview showing URL input, stream verification progress bar, and Netlify serverless architecture"
+          width="1280"
+          height="800"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+    </div>
+    <div class="project-body">
+      <div class="project-top-line">
+        <span class="project-index tabular">PROJECT // 03</span>
+        <span class="status-badge status-prototype">Prototype</span>
+      </div>
+      <h3 class="project-title">OJ Music Downloader</h3>
+      <p class="project-summary">Installable Progressive Web App and Netlify serverless API prototype for converting stream links into offline MP3 audio tracks with live progress telemetry and local history persistence.</p>
+      <div class="project-meta-list">
+        <div class="project-meta-row">
+          <span class="project-meta-key">Problem Solved</span>
+          <span class="project-meta-val">Provides a fast, mobile-friendly browser interface with automatic fallback between upstream extraction workers when preparing offline audio tracks.</span>
+        </div>
+        <div class="project-meta-row">
+          <span class="project-meta-key">Target User</span>
+          <span class="project-meta-val">DJs, commuters, and listeners curating offline personal reference tracks.</span>
+        </div>
+        <div class="project-meta-row">
+          <span class="project-meta-key">Tech Stack</span>
+          <div class="tech-pills">
+            <span class="tech-pill">JavaScript ES2022</span><span class="tech-pill">HTML5</span><span class="tech-pill">CSS3</span><span class="tech-pill">Service Worker PWA</span><span class="tech-pill">Netlify Functions</span>
+          </div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <a href="https://github.com/ochenjoshua5-jpg/oj-music-downloader" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Inspect Repository &rarr;</a>
+      </div>
+    </div>
+  </article>
+        </div>
+      </div>
+    </section>
 
-<!-- ============================================================
-     [16] JAVASCRIPT
-     ============================================================ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Auto-update the year in the footer
-  document.getElementById('yr').textContent = new Date().getFullYear();
+    <!-- DUAL DISCIPLINE BAND: ENGINEERING + DJ IDENTITY -->
+    <section class="section surface-elevated">
+      <div class="container hero-grid">
+        <div data-reveal>
+          <span class="eyebrow">03 // DUAL DISCIPLINE</span>
+          <h2 class="section-h2">ENGINEER BY MIND. DJ BY INSTINCT.</h2>
+          <p class="lead-copy" style="margin-bottom: 28px;">
+            Software engineering trains precision, systems thinking, and structure. DJing sharpens timing, energy perception, and atmosphere. Together, code and sound shape how Wealth approaches product design — technical underneath, effortless on the surface.
+          </p>
+          <div class="btn-row">
+            <a href="/engineering/" class="btn btn-secondary">Explore Engineering &amp; Code &rarr;</a>
+            <a href="/music/" class="btn btn-subtle">Open Studio Sound Deck &rarr;</a>
+          </div>
+        </div>
 
-  // Auto-update the date in the hero (e.g. "Tuesday, Jan 14")
-  const d = new Date();
-  const opts = { weekday: 'long', month: 'short', day: 'numeric' };
-  document.getElementById('today').textContent = d.toLocaleDateString('en-US', opts);
+        <div class="studio-deck" data-reveal>
+          <div class="deck-track-header" style="margin-bottom: 14px;">
+            <div>
+              <span class="project-index">WEALTH // STUDIO AUDIO</span>
+              <h3 class="deck-track-title">Session Cut 01</h3>
+            </div>
+            <span class="deck-timecode tabular" data-audio-time>00:00 / 03:31</span>
+          </div>
+          <canvas class="spectrum-canvas" data-spectrum-canvas width="560" height="84" aria-label="Audio frequency spectrum display"></canvas>
+          <div class="deck-transport" style="margin-top: 18px;">
+            <button type="button" class="btn btn-primary" data-audio-toggle aria-pressed="false">
+              <span data-audio-label data-label-paused="Play Studio Audio" data-label-playing="Pause Studio Audio">Play Studio Audio</span>
+            </button>
+            <div class="volume-group">
+              <label for="home-vol">VOL</label>
+              <input id="home-vol" type="range" class="range-luxury" min="0" max="100" value="68" data-audio-volume />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  // Smooth scroll when clicking nav links
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const t = document.querySelector(a.getAttribute('href'));
-      if (t) {
-        e.preventDefault();
-        t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-</script>
+    <!-- CLOSING EXECUTIVE CTA -->
+    <section class="section surface-obsidian">
+      <div class="container" style="text-align: center; max-width: 820px;" data-reveal>
+        <span class="eyebrow" style="justify-content: center;">04 // DIRECT COLLABORATION</span>
+        <h2 class="section-h2">BUILT IN KAMPALA. ARCHITECTED FOR GLOBAL SCALE.</h2>
+        <p class="lead-copy" style="margin: 0 auto 34px;">
+          Open to serious conversations around custom automation systems, software engineering, venture partnerships, and creative collaborations.
+        </p>
+        <div class="btn-row" style="justify-content: center;">
+          <a href="/contact/" class="btn btn-primary">LET'S BUILD SOMETHING &rarr;</a>
+          <a href="/engineering/" class="btn btn-secondary">INSPECT GITHUB &amp; STACK</a>
+        </div>
+      </div>
+    </section>
+  
+  </main>
 
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a2331f8a3d4958a0',t:'MTc4NTQwMTUwNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  const audio = document.getElementById('bg-music');
-  const btn = document.getElementById('music-toggle');
-  if(!audio || !btn) return;
-  // Ensure native controls are disabled even if controls="false" is present
-  try { audio.controls = false; } catch(e){}
-  // Restore volume from localStorage (0..1) or default to 0.55
-  const savedVol = parseFloat(localStorage.getItem('och_music_volume'));
-  audio.volume = (!Number.isNaN(savedVol) && savedVol >= 0 && savedVol <= 1) ? savedVol : 0.55;
-  const speaker = btn.querySelector('.icon-speaker');
-  const pause = btn.querySelector('.icon-pause');
-  const slider = document.getElementById('music-volume');
-  if(slider){
-    // Set slider position to match audio.volume (0..100)
-    slider.value = Math.round(audio.volume * 100);
-    slider.addEventListener('input', function(){
-      const v = Math.min(100, Math.max(0, Number(slider.value)||0));
-      audio.volume = v/100;
-      try { localStorage.setItem('och_music_volume', String(audio.volume)); } catch(e){}
-    });
-  }
-  // Restore playing state if previously playing (only if user had started it before)
-  const savedPlaying = localStorage.getItem('och_music_playing') === '1';
-  function tryAutoResume(){
-    if(savedPlaying){
-      // Attempt to resume — may be blocked until user gesture in some browsers
-      audio.play().catch(() => { /* ignore autoplay block */ });
-    }
-  }
-  function updateUI(playing){
-    btn.classList.toggle('playing', !!playing);
-    btn.setAttribute('aria-pressed', playing ? 'true' : 'false');
-    if(speaker) speaker.style.opacity = playing ? '0' : '1';
-    if(pause) pause.style.opacity = playing ? '1' : '0';
-  }
-  // Toggle play / pause on click
-  btn.addEventListener('click', function(e){
-    if(audio.paused){
-      audio.play().then(()=>{ try{ localStorage.setItem('och_music_playing','1'); }catch(e){} }).catch(()=>{});
-    } else {
-      audio.pause(); try{ localStorage.setItem('och_music_playing','0'); }catch(e){}
-    }
-  });
-  // Mirror audio state to UI
-  audio.addEventListener('play', () => updateUI(true));
-  audio.addEventListener('pause', () => updateUI(false));
-  audio.addEventListener('ended', () => updateUI(false));
-  // Save play/pause events triggered by other controls or programmatically
-  audio.addEventListener('play', () => { try{ localStorage.setItem('och_music_playing','1'); }catch(e){} });
-  audio.addEventListener('pause', () => { try{ localStorage.setItem('och_music_playing','0'); }catch(e){} });
-  // Try to auto-resume if user previously had it playing
-  tryAutoResume();
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a href="/" class="brand-mark" aria-label="Wealth — Ochen Joshua">
+            <span class="brand-monogram"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <path d="M10 17H18.2L24.8 44L31.6 20H35.4L42.2 44L48.8 17H57L45.4 51H39.6L33.5 30.2L27.4 51H21.6L10 17Z" fill="#C9A869"/>
+  <circle cx="33.5" cy="9.5" r="1.8" fill="#C9A869"/>
+</svg></span>
+            <span class="brand-text-group">
+              <span class="brand-wordmark">WEALTH</span>
+              <span class="brand-subname">Ochen Joshua</span>
+            </span>
+          </a>
+          <p class="footer-tagline">BUILD. OWN. INNOVATE. BECOME WEALTH.</p>
+          <p class="footer-positioning">Wealth — Ugandan Entrepreneur, Software Engineer, Technology Innovator &amp; DJ.</p>
+        </div>
 
-  // ---------- FORMSPREE / EMAIL FORM HANDLER ----------
-  // Replace the placeholder form action URL with your real Formspree endpoint.
-  const contactForm = document.querySelector('.cform');
-  if (contactForm) {
-    const submitButton = contactForm.querySelector('.fsubmit');
-    const statusMessage = contactForm.querySelector('.form-status');
-    const originalButtonText = submitButton ? submitButton.textContent : 'send it →';
+        <div>
+          <h2 class="footer-col-title">Architecture</h2>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About &amp; Founder Bio</a></li>
+            <li><a href="/work/">Work &amp; Ventures</a></li>
+            <li><a href="/engineering/">Software Engineering</a></li>
+            <li><a href="/music/">Music &amp; DJ Identity</a></li>
+            <li><a href="/contact/">Contact &amp; Inquiries</a></li>
+          </ul>
+        </div>
 
-    contactForm.addEventListener('submit', async function(event) {
-      event.preventDefault();
-      if (!submitButton) return;
+        <div>
+          <h2 class="footer-col-title">Verified Presence</h2>
+          <ul class="footer-links">
+            <li><a href="https://github.com/ochenjoshua5-jpg" target="_blank" rel="noopener noreferrer">GitHub (@ochenjoshua5-jpg)</a></li>
+            <li><a href="mailto:ochenjoshua5@gmail.com">ochenjoshua5@gmail.com</a></li>
+            <li><a href="/sitemap.xml">XML Sitemap</a></li>
+          </ul>
+          <!-- [PENDING-CLIENT-INPUT]: Add verified LinkedIn, Instagram, X, and SoundCloud/Mixcloud links here once supplied. -->
+        </div>
+      </div>
 
-      submitButton.disabled = true;
-      submitButton.textContent = 'sending...';
-      submitButton.style.background = '';
-      if (statusMessage) {
-        statusMessage.textContent = '';
-        statusMessage.style.color = 'var(--text-2)';
-      }
+      <div class="footer-bottom">
+        <span>&copy; <span id="wealth-year">2026</span> Ochen Joshua (Wealth). All rights reserved.</span>
+        <span>Kampala, Uganda &middot; Built for global scale.</span>
+      </div>
+    </div>
+  </footer>
 
-      const formData = new FormData(contactForm);
-      const endpoint = contactForm.action || 'https://formspree.io/f/your-form-id';
+  <!-- Hidden Netlify Form Blueprint so static deploys register form schema automatically -->
+  <form name="wealth-contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="subject" />
+    <textarea name="message"></textarea>
+  </form>
 
-      try {
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-
-        if (!response.ok) throw new Error('Network response was not ok');
-        const data = await response.json();
-        if (data && data.ok === false) throw new Error('Form submission failed');
-
-        submitButton.textContent = '✓ sent. talk soon.';
-        submitButton.style.background = 'var(--green)';
-        contactForm.reset();
-        if (statusMessage) {
-          statusMessage.textContent = 'Message sent! Thank you.';
-          statusMessage.style.color = 'var(--green)';
-        }
-      } catch (error) {
-        submitButton.textContent = originalButtonText;
-        submitButton.style.background = '';
-        if (statusMessage) {
-          statusMessage.textContent = '⚠️ Failed to send. Please email me directly at ochenjoshua5@gmail.com.';
-          statusMessage.style.color = 'var(--red)';
-        }
-      } finally {
-        submitButton.disabled = false;
-      }
-    });
-  }
-});
-</script>
+  <audio id="wealth-audio" src="/public/music.mp3" preload="metadata"></audio>
+  <div id="wealth-toast" class="wealth-toast" role="status" aria-live="polite"></div>
+  <script src="/assets/js/wealth.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,23 @@
+{
+  "name": "wealth-ochen-joshua",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Wealth (Ochen Joshua) — Ugandan Entrepreneur, Software Engineer, Technology Innovator & DJ",
+  "scripts": {
+    "build:assets": "node scripts/build-assets.mjs",
+    "build:pages": "node scripts/build-pages.mjs",
+    "build": "npm run build:assets && npm run build:pages",
+    "lint": "node scripts/lint-site.mjs",
+    "test": "node --test tests/site.test.mjs",
+    "serve": "node scripts/preview-server.mjs"
+  },
+  "devDependencies": {
+    "@fontsource/cormorant-garamond": "^5.1.0",
+    "@fontsource/inter": "^5.1.0",
+    "@fontsource/jetbrains-mono": "^5.1.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "jsdom": "^25.0.1",
+    "sharp": "^0.33.5"
+  }
+}
