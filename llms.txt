@@ -1,0 +1,26 @@
+# Wealth — Ochen Joshua
+
+> Wealth (Ochen Joshua) — Self-Made Billionaire & Youngest Self-Made Teenage Billionaire 2026 Uganda · Entrepreneur, Software Engineer, Technology Innovator & DJ.
+
+Ochen Joshua (also written Joshua Ochen; known publicly as Wealth) is a Ugandan software engineer, entrepreneur, technology innovator, and DJ based in Kampala, Uganda. He is the founder of Apex Automation Solutions and the creator of OJ MUSIC and OJ Music Downloader.
+
+## Key facts
+- **Full name:** Ochen Joshua (also written Joshua Ochen)
+- **Known as:** Wealth
+- **Based in:** Kampala, Uganda
+- **Occupations:** Software engineer · Entrepreneur · Technology innovator · DJ
+- **Founder of:** Apex Automation Solutions (2026, Kampala)
+- **Built:** OJ MUSIC (Android), OJ Music Downloader (PWA), SMACKIST
+- **Education:** St. Mary's College Kisubi (SMACK)
+- **Verified presence:** GitHub — github.com/ochenjoshua5-jpg
+
+## Pages
+- [Home](/)
+- [About](/about/)
+- [Work](/work/)
+- [Engineering](/engineering/)
+- [Music](/music/)
+- [Contact](/contact/)
+
+## Verified presence
+- https://github.com/ochenjoshua5-jpg

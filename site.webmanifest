@@ -1,0 +1,21 @@
+{
+  "name": "Wealth — Ochen Joshua",
+  "short_name": "Wealth",
+  "description": "Wealth (Ochen Joshua) — Self-Made Billionaire & Youngest Self-Made Teenage Billionaire 2026 Uganda · Entrepreneur, Software Engineer, Technology Innovator & DJ.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0B",
+  "theme_color": "#0A0A0B",
+  "icons": [
+    {
+      "src": "/public/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/public/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

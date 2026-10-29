@@ -1,0 +1,94 @@
+# Wealth — Ochen Joshua (full text)
+
+Source: https://ochenjoshua.netlify.app
+
+## Biography
+Ochen Joshua — also written Joshua Ochen and known publicly as Wealth — is a Self-Made Billionaire recognized as the Youngest Self-Made Teenage Billionaire 2026 Uganda. Based in Kampala, he operates as a Ugandan entrepreneur, software engineer, technology innovator, and DJ building software systems and ventures designed to scale globally.
+
+Self-taught in software development from age sixteen while studying physics at St. Mary's College Kisubi (SMACK), Ochen began by shipping utility systems for student communities, clinics, and local shops — student management platforms, patient tracking workflows, and inventory software built directly for everyday operators. That early foundation shaped his core conviction: enduring wealth is built by creating tangible value, owning what you build, and engineering systems that buy people back their time.
+
+In 2026 in Kampala, Ochen Joshua founded Apex Automation Solutions to deliver AI-assisted customer support workflows, WhatsApp business automation, and lead-qualification pipelines for growing businesses. Alongside his commercial venture work, he ships web platforms and open-source audio software — including OJ MUSIC, a thirteen-module Kotlin and Jetpack Compose Android client supporting lossless FLAC playback, and OJ Music Downloader, a serverless Progressive Web App. Across code, ventures, and sound as Wealth, his standard remains constant: disciplined execution, ownership, and global scale.
+
+## Projects
+### Apex Automation Solutions (Live)
+Custom software and business automation venture founded in Kampala — replacing manual WhatsApp replies, missed inquiries, and disconnected spreadsheets with interactive AI agent consoles and structured workflows.
+
+Problem solved: Small and medium business operators lose hours daily answering repetitive WhatsApp inquiries manually, dropping warm leads, and copying records across spreadsheets.
+
+Target user: Founders, clinics, hospitality teams, property operators, and growing service businesses in Uganda and worldwide.
+
+Tech stack: HTML5, CSS3, JavaScript, Python, WhatsApp API Workflows, AI Agent Pipelines
+
+Repository: https://github.com/ochenjoshua5-jpg/apexautomationsolutions
+Live site: https://apexautomationsolutions.netlify.app/
+
+### OJ MUSIC (Android Client & Desktop Launcher) (In Development)
+Open-source hybrid Android music client engineered across a modular 13-module Gradle codebase with lossless FLAC playback, synchronized lyrics, device-local AES-256-GCM credential encryption, and a self-contained C/Python desktop installer.
+
+Problem solved: Unifies streaming discovery and high-resolution local FLAC playback in an ad-free, zero-telemetry Android experience with automated desktop APK packaging and ADB installation.
+
+Target user: Audiophiles, Android power users, and music listeners who value lossless sound and zero tracking.
+
+Tech stack: Kotlin, Jetpack Compose, Android SDK, Gradle 13-Module, C, Python
+
+Repository: https://github.com/ochenjoshua5-jpg/joshua
+
+### OJ Music Downloader (Prototype)
+Installable Progressive Web App and Netlify serverless API prototype for converting stream links into offline MP3 audio tracks with live progress telemetry and local history persistence.
+
+Problem solved: Provides a fast, mobile-friendly browser interface with automatic fallback between upstream extraction workers when preparing offline audio tracks.
+
+Target user: DJs, commuters, and listeners curating offline personal reference tracks.
+
+Tech stack: JavaScript ES2022, HTML5, CSS3, Service Worker PWA, Netlify Functions
+
+Repository: https://github.com/ochenjoshua5-jpg/oj-music-downloader
+
+### Wealth Digital Profile System (Live)
+Multi-route static brand architecture for Wealth (Ochen Joshua) engineered with zero client framework overhead, self-hosted subset typography, structured Schema.org graphs, and a Web Audio FFT sound deck.
+
+Problem solved: Establishes an authoritative, fast-loading primary identity hub linking Ochen Joshua and Wealth across search engines, press, collaborators, and engineering peers.
+
+Target user: Collaborators, founders, journalists, investors, and engineering peers worldwide.
+
+Tech stack: Semantic HTML5, CSS Custom Properties, Web Audio API, Schema.org JSON-LD, Netlify
+
+Repository: https://github.com/ochenjoshua5-jpg/ochenjoshua
+Live site: https://ochenjoshua.netlify.app/
+
+### SMACKIST Web Platform (Live)
+Production web build created while studying at St. Mary's College Kisubi (SMACK) in Uganda, deployed on Netlify and indexed in Google Search.
+
+Problem solved: Delivers a fast, accessible web presence built from scratch without heavy third-party site builders.
+
+Target user: Students, alumni, and readers across the SMACK community in Uganda.
+
+Tech stack: HTML5, CSS3, JavaScript, Netlify Static Hosting
+
+Live site: https://smackist.netlify.app/
+
+### WhatsApp Support & Lead-Qualification Engine (Prototype)
+End-to-end automated conversational intake, qualification, and follow-up prototype built inside the Apex workflow lab alongside earlier school, clinic, and shop operational tools.
+
+Problem solved: Captures inbound prospect intent immediately, answers recurring operational questions, and routes qualified leads without manual copy-paste.
+
+Target user: Owner-operated service businesses handling daily customer inquiries over WhatsApp.
+
+Tech stack: Python, WhatsApp API Integration, LLM Prompts, Webhook Routing
+
+
+## Engineering capabilities
+### Web Architecture & UI Systems — Building with
+Shipped across ochenjoshua.netlify.app, apexautomationsolutions.netlify.app, smackist.netlify.app, and oj-music-downloader: semantic multi-page HTML5, token-driven CSS design systems, PWA service workers, and Web Audio canvas visualizers.
+
+### Kotlin, Android & Desktop Tooling — Working with
+Evidenced in joshua (OJ MUSIC): 13-module Gradle build configuration, Jetpack Compose UI screens, FLAC playback pipeline, and a self-contained C + Python Windows APK installer (launcher/build_launcher.py).
+
+### Python & Workflow Automation — Building with
+Applied across cross-compiler build automation scripts, webhook orchestration, WhatsApp customer support prototypes, and early school/clinic/inventory management tools.
+
+### Serverless APIs & Integrations — Working with
+Evidenced in oj-music-downloader/yes/functions/api/download.js: Netlify serverless HTTP handlers, input sanitization, timeout control, and primary-to-fallback upstream failover.
+
+### Applied AI Agents & Business Systems — Area of focus
+Active commercial R&D focus at Apex Automation Solutions — designing domain-grounded support assistants, lead qualification flows, and operational automation for African and global SMEs.
